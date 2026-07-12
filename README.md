@@ -1,51 +1,20 @@
-# Tanzania Companion Version 20.1
+# Tanzania Companion Version 20.2 — Styling Repair
 
 Direct upload package. No builders or command files.
 
-## Navigation cleanup
-- The Wildlife page is now titled **Zanzibar**.
-- Top and bottom navigation now display **Zanzibar**.
-- Every page keeps one curated horizontal submenu.
-- Every submenu follows the exact order of sections on its page.
-- Submenu wording has been cleaned up for readability and relevance.
+This release repairs the Version 20.1 styling regression, including:
 
-## Page structure
+- Nikon Z8 control diagrams constrained to their cards
+- Correct SVG fills, strokes and label colors
+- Proper icon-card spacing
+- Restored control, fundamentals and infographic layouts
+- Correct checkbox sizing
+- Improved responsive layouts for mobile
+- One curated submenu per page
+- New service-worker cache key and CSS/JS cache-busting
 
-### Today
-1. Today
-2. Weather
-3. Trip checklist
+## Upload
 
-### Trip
-1. Trip overview
-2. Hotels
-3. Meals
-4. Family photos
-5. Tipping
+Upload the contents of this ZIP to the repository root and overwrite matching files.
 
-### Photography
-1. Photography hub
-2. Shoot Now
-3. Start
-4. Global setup
-5. Photo banks
-6. Video banks
-7. Verify
-8. Controls
-9. Fundamentals
-10. Visual guides
-
-### Zanzibar
-1. Things to do
-2. Photography guide
-3. Shopping
-
-### More
-1. Insurance
-2. Documents
-3. To-dos
-4. Contacts
-5. Library
-6. Resources
-
-Keep the existing `assets/` and `documents/` folders in GitHub.
+Do not delete the existing `assets/` or `documents/` folders in GitHub. They already contain the images and PDF used by this release.

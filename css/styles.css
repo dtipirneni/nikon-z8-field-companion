@@ -107,3 +107,65 @@ summary{cursor:pointer;font-weight:800}
 .budget-table>div:last-child{border-bottom:0}
 .danger-list label{border-color:#6e3e36;background:#271714}
 @media(max-width:560px){.shop-checks{grid-template-columns:1fr}}
+
+
+/* Version 20.2 — restored visual diagrams and responsive safeguards */
+svg{max-width:100%;height:auto}
+.controls-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.control-diagram{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:17px;padding:16px;overflow:hidden}
+.control-diagram svg{display:block;width:100%;height:auto;max-height:340px;margin:0 auto 12px}
+.control-diagram h3{margin:10px 0 14px}
+.control-diagram p{margin:.75rem 0}
+.cam{fill:#202820;stroke:#879487;stroke-width:4}
+.hot{fill:#e0ad47;stroke:#fff;stroke-width:3}
+.label{font:700 16px Arial,sans-serif;fill:#f3f5f1}
+.smalllabel{font:700 13px Arial,sans-serif;fill:#e0ad47}
+.iconrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.iconcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.iconcard svg{display:block;width:72px;height:72px;margin:auto}
+.iconcard b{display:block;margin-top:8px}
+.bankname{font-size:.85rem;color:var(--gold);font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.fund-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.fund-img{background:#fff;border-radius:16px;padding:10px;border:1px solid var(--line);overflow:hidden}
+.fund-img img{display:block;width:100%;height:auto;border-radius:10px}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.infographic{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:17px;overflow:hidden}
+.infographic h3{display:flex;gap:8px;align-items:center}
+.animal-row,.time-row,.weather-row,.focal-row{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.animal-row:last-child,.time-row:last-child,.weather-row:last-child,.focal-row:last-child{border-bottom:0}
+.triad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.triad>div{background:#121712;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.flow{display:flex;flex-direction:column;gap:8px}
+.flow>div{background:#121712;border:1px solid var(--line);border-radius:10px;padding:10px}
+.flow .arrow{border:0;background:transparent;text-align:center;color:var(--gold);font-weight:800;padding:0}
+.composition-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.composition-grid>div{aspect-ratio:1;border:1px solid var(--line);position:relative;border-radius:10px;background:#121712;overflow:hidden}
+.thirds:before,.thirds:after{content:"";position:absolute;background:#59665b}
+.thirds:before{left:33%;top:0;bottom:0;width:1px;box-shadow:calc(100% + 33%) 0 0 #59665b}
+.thirds:after{top:33%;left:0;right:0;height:1px;box-shadow:0 calc(100% + 33%) 0 #59665b}
+.dot{width:18px;height:18px;border-radius:50%;background:var(--gold);position:absolute}
+.negspace .dot{right:18%;top:45%}
+.centered .dot{left:calc(50% - 9px);top:calc(50% - 9px)}
+.thirds .dot{left:calc(66% - 9px);top:calc(33% - 9px)}
+.zanzi-card .body{padding:17px}
+.zanzi-map{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.zanzi-map>div{border-radius:12px;padding:12px;text-align:center;background:#112126;border:1px solid #35515a}
+input[type="checkbox"],input[type="radio"]{width:auto;min-width:18px;height:18px;padding:0;flex:0 0 auto}
+.check-grid input[type="checkbox"],.inline-check input[type="checkbox"]{margin-top:2px}
+.page-subnav{overscroll-behavior-x:contain}
+@media(max-width:760px){
+  .topnav{display:none}
+  .page-subnav{top:0}
+  .bottom-nav{display:flex}
+  .control-diagram svg{max-height:280px}
+  .animal-row,.time-row,.weather-row,.focal-row{grid-template-columns:42px minmax(0,1fr)}
+  .animal-row .badge,.time-row .badge,.weather-row .badge,.focal-row .badge{grid-column:2;justify-self:start}
+  .composition-grid{grid-template-columns:1fr 1fr}
+  .triad{grid-template-columns:1fr}
+  .zanzi-map{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+  .controls-grid,.fund-grid,.info-grid{grid-template-columns:1fr}
+  .control-diagram{padding:12px}
+  .control-diagram svg{max-height:240px}
+}

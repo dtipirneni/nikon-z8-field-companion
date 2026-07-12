@@ -1,7 +1,7 @@
-const CACHE = "tanzania-companion-v20-1";
+const CACHE = "tanzania-companion-v20-2";
 const CORE = [
   "./","./index.html","./trip.html","./shoot.html","./wildlife.html","./more.html",
-  "./css/styles.css?v=20.1","./js/app.js?v=20.1","./manifest.webmanifest","./icon.svg"
+  "./css/styles.css?v=20.2","./js/app.js?v=20.2","./manifest.webmanifest","./icon.svg"
 ];
 
 self.addEventListener("install", event => {

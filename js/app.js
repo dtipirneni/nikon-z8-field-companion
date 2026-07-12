@@ -77,3 +77,15 @@ if ('serviceWorker' in navigator) {
     window.location.reload();
   });
 }
+
+
+// Version 9: tipping-envelope checklist
+const tipCheckKey='z8-tip-check-v9';
+const tipSaved=JSON.parse(localStorage.getItem(tipCheckKey)||'{}');
+document.querySelectorAll('[data-tipcheck]').forEach(cb=>{
+  cb.checked=!!tipSaved[cb.dataset.tipcheck];
+  cb.addEventListener('change',()=>{
+    tipSaved[cb.dataset.tipcheck]=cb.checked;
+    localStorage.setItem(tipCheckKey,JSON.stringify(tipSaved));
+  });
+});

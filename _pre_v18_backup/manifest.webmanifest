@@ -1,11 +1,11 @@
 {
-  "name": "Tanzania Companion",
-  "short_name": "Tanzania",
+  "name": "Z8 Tanzania Modular Static Companion",
+  "short_name": "Z8 Tanzania",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0c100d",
   "theme_color": "#11150f",
-  "description": "Offline safari, itinerary, contacts, shopping and photography companion for Tanzania and Zanzibar.",
+  "description": "Static multi-page Nikon Z8, Tanzania safari and Zanzibar travel companion.",
   "icons": [
     {
       "src": "icon.svg",

@@ -1,7 +1,7 @@
-const CACHE = 'tanzania-companion-v18';
+const CACHE = 'z8-tanzania-v16';
 const CORE = [
   './','./index.html','./trip.html','./shoot.html','./wildlife.html','./more.html',
-  './css/styles.css','./v18.css','./js/app.js','./js/v18-enhancements.js',
+  './css/styles.css','./v16.css','./js/app.js','./js/v16-enhancements.js',
   './manifest.webmanifest','./icon.svg',
   './assets/exposure-triangle-purple.png','./assets/photography-cheat-sheet.jpeg',
   './assets/exposure-triangle-green.png','./assets/tipping-sheet.png',

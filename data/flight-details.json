@@ -1,0 +1,88 @@
+{
+  "booking_reference": "9N87VW",
+  "cabin": "Economy",
+  "baggage": {
+    "checked": "2 x 23 kg each",
+    "hand": "1 x 7 kg"
+  },
+  "flights": [
+    {
+      "date": "2026-07-23",
+      "route": "LAX-DOH",
+      "flight": "QR740",
+      "departure": "16:20",
+      "arrival": "17:50 +1",
+      "duration": "15h 30m",
+      "aircraft": "Airbus A350-1000",
+      "operator": "Qatar Airways",
+      "departure_terminal": "Terminal B",
+      "wifi": "Starlink Wi-Fi"
+    },
+    {
+      "date": "2026-07-24",
+      "route": "DOH-JRO",
+      "departure": "02:10",
+      "arrival": "07:25",
+      "duration": "5h 15m"
+    },
+    {
+      "date": "2026-08-02",
+      "route": "ARUSHA-ZANZIBAR",
+      "flight_number": "A7401",
+      "airline": "As Salaam Air",
+      "check_in": "13:30",
+      "departure": "14:30",
+      "arrival": "15:30",
+      "duration": "1h 00m",
+      "departure_airport": "Arusha Airport",
+      "departure_codes": [
+        "ARK",
+        "ARS"
+      ],
+      "arrival_airport": "Zanzibar",
+      "arrival_code": "ZNZ",
+      "fare_per_adult_usd": 230,
+      "fare_total_usd": 920,
+      "booked_by": "Leopard Tours",
+      "baggage_rule": {
+        "total_per_person": "15 kg / 33 lb including hand luggage",
+        "bag_type": "Soft-sided bag or duffel",
+        "max_dimensions": "24 x 17 x 7 inches",
+        "source_priority": "Lion World Travel itinerary"
+      }
+    },
+    {
+      "date": "2026-08-05",
+      "route": "ZNZ-KGL",
+      "flight": "QR6428",
+      "departure": "18:40",
+      "arrival": "20:10",
+      "duration": "2h 30m",
+      "aircraft": "Boeing 737-800",
+      "operator": "RwandAir",
+      "departure_terminal": "Terminal 3"
+    },
+    {
+      "date": "2026-08-05",
+      "route": "KGL-DOH",
+      "departure": "23:20",
+      "arrival": "06:10 +1",
+      "duration": "5h 50m",
+      "flight": "QR6395",
+      "aircraft": "Boeing 737-800",
+      "operator": "RwandAir"
+    },
+    {
+      "date": "2026-08-06",
+      "route": "DOH-LAX",
+      "departure": "07:30",
+      "arrival": "14:00",
+      "duration": "16h 30m",
+      "operator": "Qatar Airways",
+      "flight": "QR739",
+      "aircraft": "Airbus A350-1000",
+      "arrival_terminal": "Terminal B",
+      "wifi": "Starlink Wi-Fi"
+    }
+  ]
+}

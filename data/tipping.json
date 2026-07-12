@@ -1,0 +1,38 @@
+{
+  "source": "User handwritten planning note",
+  "currency": "USD",
+  "guide": {
+    "amount_per_person_per_safari_day": 14,
+    "travelers": 4,
+    "family_amount_per_safari_day": 56,
+    "note": "Confirm whether this is for the driver-guide alone or a combined staff pool."
+  },
+  "lodges": [
+    {
+      "dates": "2026-07-25 to 2026-07-26",
+      "name": "Gran Meli\u00e1 Arusha",
+      "amount_total": 20
+    },
+    {
+      "dates": "2026-07-27",
+      "name": "Tarangire Sopa Lodge",
+      "amount_total": 10
+    },
+    {
+      "dates": "2026-07-28 to 2026-07-30",
+      "name": "TNS Kimarishe Serengeti Lodge",
+      "amount_total": 30
+    },
+    {
+      "dates": "2026-07-31 to 2026-08-01",
+      "name": "TNS Ngorongoro Rim Lodge",
+      "amount_total": 20
+    },
+    {
+      "dates": "2026-08-02 to 2026-08-04",
+      "name": "Neptune Pwani Beach Resort & Spa",
+      "amount_total": 30
+    }
+  ],
+  "lodge_total": 110
+}

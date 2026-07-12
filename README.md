@@ -1,14 +1,10 @@
-# Tanzania Companion Version 22.2 — Itinerary-Aware Species Location
+# Tanzania Companion Version 23 — Interactive Safari Field Journal
 
-The custom species form now defaults to **Auto from today’s itinerary**.
+Field Guide sections and submenu are aligned exactly:
+1. Journal
+2. Add sighting
+3. Species guide
+4. Ethics
+5. Images
 
-Location is inferred from the trip dates:
-- Arusha
-- Tarangire
-- Serengeti
-- Ngorongoro
-- Zanzibar
-
-A manual location override remains available for sightings made elsewhere or on a different day.
-
-Custom species entries still remain stored only on the device.
+The journal records species, date, time, itinerary-derived location, specific place, behaviors, photographed status, photo style, notes and attached images. Metadata stays in localStorage; images stay in IndexedDB. Nothing is uploaded.

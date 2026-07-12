@@ -448,107 +448,28 @@
   }));
 
 
-  // Custom species sightings.
-  const customSpeciesForm = document.getElementById("customSpeciesForm");
-  const customSpeciesList = document.getElementById("customSpeciesList");
-  const customSpeciesStorageKey = "custom-species-v22-1";
 
-  const itineraryLocationForDate = date => {
-    const key = date.toISOString().slice(0,10);
-    if (key <= "2026-07-24") return "Arusha";
-    if (key === "2026-07-25" || key === "2026-07-26") return "Tarangire";
-    if (key >= "2026-07-27" && key <= "2026-07-30") return "Serengeti";
-    if (key === "2026-07-31" || key === "2026-08-01") return "Ngorongoro";
-    if (key >= "2026-08-02" && key <= "2026-08-06") return "Zanzibar";
-    return "Other";
-  };
-
-  const resolvedCustomSpeciesLocation = () => {
-    const select = document.getElementById("customSpeciesLocation");
-    if (!select) return "Other";
-    return select.value === "auto" ? itineraryLocationForDate(new Date()) : select.value;
-  };
-
-  const updateCustomSpeciesLocationHint = () => {
-    const select = document.getElementById("customSpeciesLocation");
-    const hint = document.getElementById("customSpeciesLocationHint");
-    if (!select || !hint) return;
-    const inferred = itineraryLocationForDate(new Date());
-    hint.textContent = select.value === "auto"
-      ? `Today’s itinerary location: ${inferred}`
-      : `Using manual location: ${select.value}`;
-  };
-
-  const loadCustomSpecies = () => {
-    try {
-      const parsed = JSON.parse(localStorage.getItem(customSpeciesStorageKey) || "[]");
-      return Array.isArray(parsed) ? parsed : [];
-    } catch {
-      return [];
-    }
-  };
-
-  const saveCustomSpecies = items => localStorage.setItem(customSpeciesStorageKey, JSON.stringify(items));
-
-  const escapeHtml = value => String(value ?? "")
-    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;").replaceAll("'","&#039;");
-
-  const renderCustomSpecies = () => {
-    if (!customSpeciesList) return;
-    const items = loadCustomSpecies();
-    if (!items.length) {
-      customSpeciesList.innerHTML = '<div class="custom-species-empty">No additional species recorded yet.</div>';
-      return;
-    }
-    customSpeciesList.innerHTML = items.map(item => `
-      <article class="custom-species-card">
-        <div class="custom-species-icon" aria-hidden="true">${item.type === "Bird" ? "🐦" : item.type === "Reptile" ? "🦎" : item.type === "Mammal" ? "🐾" : "🔎"}</div>
-        <div class="custom-species-content">
-          <div class="custom-species-header">
-            <div><h3>${escapeHtml(item.name)}</h3>
-              <div class="species-tags"><span>${escapeHtml(item.type)}</span><span>${escapeHtml(item.location)}</span><span>${escapeHtml(item.status)}</span></div>
-            </div>
-            <button class="custom-species-delete" type="button" data-delete-custom-species="${escapeHtml(item.id)}">Delete</button>
-          </div>
-          ${item.notes ? `<p>${escapeHtml(item.notes)}</p>` : ""}
-          <small class="muted">Added ${new Date(item.createdAt).toLocaleString()}</small>
-        </div>
-      </article>`).join("");
-    customSpeciesList.querySelectorAll("[data-delete-custom-species]").forEach(button => {
-      button.addEventListener("click", () => {
-        saveCustomSpecies(loadCustomSpecies().filter(item => item.id !== button.dataset.deleteCustomSpecies));
-        renderCustomSpecies();
-      });
-    });
-  };
-
-  if (customSpeciesForm) {
-    renderCustomSpecies();
-    updateCustomSpeciesLocationHint();
-    const locationSelect = document.getElementById("customSpeciesLocation");
-    if (locationSelect) locationSelect.addEventListener("change", updateCustomSpeciesLocationHint);
-    customSpeciesForm.addEventListener("submit", event => {
-      event.preventDefault();
-      const name = document.getElementById("customSpeciesName").value.trim();
-      if (!name) return;
-      const items = loadCustomSpecies();
-      items.unshift({
-        id: `${Date.now()}-${Math.random().toString(36).slice(2,8)}`,
-        name,
-        type: document.getElementById("customSpeciesType").value,
-        location: resolvedCustomSpeciesLocation(),
-        status: document.getElementById("customSpeciesStatus").value,
-        notes: document.getElementById("customSpeciesNotes").value.trim(),
-        createdAt: Date.now()
-      });
-      saveCustomSpecies(items);
-      customSpeciesForm.reset();
-      updateCustomSpeciesLocationHint();
-      renderCustomSpecies();
-    });
-  }
-
+  // Interactive safari field journal.
+  const JOURNAL_KEY="safari-journal-v23", JOURNAL_DB="tanzania-companion-journal", JOURNAL_STORE="images";
+  const itineraryLocationForDate=v=>{const k=typeof v==="string"?v:v.toISOString().slice(0,10);if(k<="2026-07-24")return"Arusha";if(["2026-07-25","2026-07-26"].includes(k))return"Tarangire";if(k>="2026-07-27"&&k<="2026-07-30")return"Serengeti";if(["2026-07-31","2026-08-01"].includes(k))return"Ngorongoro";if(k>="2026-08-02"&&k<="2026-08-06")return"Zanzibar";return"Other"};
+  const jr=()=>{try{const x=JSON.parse(localStorage.getItem(JOURNAL_KEY)||"[]");return Array.isArray(x)?x:[]}catch{return[]}}, jw=x=>localStorage.setItem(JOURNAL_KEY,JSON.stringify(x));
+  const esc=v=>String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
+  const dbOpen=()=>new Promise((ok,no)=>{const r=indexedDB.open(JOURNAL_DB,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains(JOURNAL_STORE))r.result.createObjectStore(JOURNAL_STORE,{keyPath:"id"})};r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)});
+  const imgPut=async(id,blob)=>{const d=await dbOpen();return new Promise((ok,no)=>{const t=d.transaction(JOURNAL_STORE,"readwrite");t.objectStore(JOURNAL_STORE).put({id,blob});t.oncomplete=()=>ok(id);t.onerror=()=>no(t.error)})};
+  const imgGet=async id=>{const d=await dbOpen();return new Promise((ok,no)=>{const r=d.transaction(JOURNAL_STORE).objectStore(JOURNAL_STORE).get(id);r.onsuccess=()=>ok(r.result||null);r.onerror=()=>no(r.error)})};
+  const imgDel=async id=>{const d=await dbOpen();return new Promise((ok,no)=>{const t=d.transaction(JOURNAL_STORE,"readwrite");t.objectStore(JOURNAL_STORE).delete(id);t.oncomplete=ok;t.onerror=()=>no(t.error)})};
+  async function thumbs(card){const ids=JSON.parse(card.dataset.imageIds||"[]"),h=card.querySelector(".journal-card-images");if(!h)return;h.innerHTML="";for(const id of ids){const x=await imgGet(id);if(!x)continue;const u=URL.createObjectURL(x.blob),im=document.createElement("img");im.src=u;im.alt="Saved sighting photograph";im.onload=()=>URL.revokeObjectURL(u);h.appendChild(im)}}
+  function renderJournal(){const list=document.getElementById("journalList"),empty=document.getElementById("journalEmpty");if(!list||!empty)return;const all=jr().sort((a,b)=>`${b.date}T${b.time}`.localeCompare(`${a.date}T${a.time}`)),loc=document.getElementById("journalLocationFilter")?.value||"all",st=document.getElementById("journalStatusFilter")?.value||"all",q=(document.getElementById("journalSearch")?.value||"").toLowerCase();const rows=all.filter(x=>(loc==="all"||x.location===loc)&&(st==="all"||x.status===st)&&(!q||`${x.species} ${x.location} ${x.place} ${(x.behaviors||[]).join(" ")} ${x.notes}`.toLowerCase().includes(q)));const set=(id,v)=>{const n=document.getElementById(id);if(n)n.textContent=v};set("journalSpeciesCount",new Set(all.map(x=>x.species.toLowerCase())).size);set("journalSightingCount",all.length);set("journalPhotoCount",all.filter(x=>x.status==="photographed").length);set("journalImageCount",all.reduce((n,x)=>n+(x.imageIds?.length||0),0));empty.classList.toggle("hide",all.length>0);list.innerHTML=rows.map(x=>`<article class="journal-card" data-image-ids='${esc(JSON.stringify(x.imageIds||[]))}'><div class="journal-card-head"><div><div class="journal-card-date">${esc(new Date(`${x.date}T${x.time}`).toLocaleString([], {dateStyle:"medium",timeStyle:"short"}))}</div><h3>${esc(x.species)}</h3><div class="species-tags"><span>${esc(x.type)}</span><span>${esc(x.location)}</span>${x.place?`<span>${esc(x.place)}</span>`:""}<span>${x.status==="photographed"?"Photographed":"Seen"}</span>${x.photoStyle?`<span>${esc(x.photoStyle)}</span>`:""}</div></div><button class="journal-delete" data-journal-delete="${esc(x.id)}">Delete</button></div>${x.behaviors?.length?`<p><b>Behavior:</b> ${esc(x.behaviors.join(", "))}</p>`:""}${x.notes?`<p>${esc(x.notes)}</p>`:""}<div class="journal-card-images"></div></article>`).join("");list.querySelectorAll(".journal-card").forEach(thumbs);list.querySelectorAll("[data-journal-delete]").forEach(b=>b.onclick=async()=>{const a=jr(),x=a.find(i=>i.id===b.dataset.journalDelete);for(const id of x?.imageIds||[])await imgDel(id);jw(a.filter(i=>i.id!==b.dataset.journalDelete));renderJournal()})}
+  const sd=document.getElementById("sightingDate"),st=document.getElementById("sightingTime"),sl=document.getElementById("sightingLocation"),sh=document.getElementById("sightingLocationHint"),si=document.getElementById("sightingImages"),sp=document.getElementById("sightingImagePreview");
+  function locHint(){if(sh)sh.textContent=sl?.value==="auto"?`Itinerary location: ${itineraryLocationForDate(sd?.value||new Date())}`:`Manual location: ${sl?.value||"Other"}`}
+  function defaults(){const n=new Date();if(sd)sd.value=n.toISOString().slice(0,10);if(st)st.value=n.toTimeString().slice(0,5);if(sl)sl.value="auto";locHint()}
+  function preview(){if(!sp||!si)return;sp.innerHTML="";[...si.files].forEach(f=>{const u=URL.createObjectURL(f),im=document.createElement("img");im.src=u;im.onload=()=>URL.revokeObjectURL(u);sp.appendChild(im)})}
+  document.getElementById("sightingForm")?.addEventListener("submit",async e=>{e.preventDefault();const species=document.getElementById("sightingSpecies").value.trim();if(!species)return;const id=`${Date.now()}-${Math.random().toString(36).slice(2,8)}`,imageIds=[];for(const [i,f] of [...(si?.files||[])].entries()){const iid=`${id}-img-${i}`;await imgPut(iid,f);imageIds.push(iid)}const behaviors=[...document.querySelectorAll(".behavior-options input:checked")].map(x=>x.value),a=jr();a.push({id,species,type:document.getElementById("sightingType").value,date:sd.value,time:st.value,location:sl.value==="auto"?itineraryLocationForDate(sd.value):sl.value,place:document.getElementById("sightingPlace").value.trim(),status:document.getElementById("sightingStatus").value,photoStyle:document.getElementById("sightingPhotoStyle").value,behaviors,notes:document.getElementById("sightingNotes").value.trim(),imageIds});jw(a);e.target.reset();document.querySelectorAll(".behavior-options input").forEach(x=>x.checked=false);if(sp)sp.innerHTML="";defaults();renderJournal();location.hash="#journal"});
+  document.getElementById("sightingResetBtn")?.addEventListener("click",()=>{document.getElementById("sightingForm")?.reset();document.querySelectorAll(".behavior-options input").forEach(x=>x.checked=false);if(sp)sp.innerHTML="";defaults()});
+  sd?.addEventListener("change",locHint);sl?.addEventListener("change",locHint);si?.addEventListener("change",preview);
+  ["journalLocationFilter","journalStatusFilter"].forEach(id=>document.getElementById(id)?.addEventListener("change",renderJournal));document.getElementById("journalSearch")?.addEventListener("input",renderJournal);
+  document.getElementById("journalExportBtn")?.addEventListener("click",()=>{const b=new Blob([JSON.stringify({exportedAt:new Date().toISOString(),entries:jr()},null,2)],{type:"application/json"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download=`tanzania-safari-journal-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(u)});
+  if(document.getElementById("sightingForm")){defaults();renderJournal()}
 
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(console.error));

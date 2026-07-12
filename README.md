@@ -1,15 +1,18 @@
-# Tanzania Companion Version 20.3 — Weather Layout Fix
+# Tanzania Companion Version 21
 
-Direct upload package.
+Direct upload package—no builders or command files.
 
-Changes:
-- Reduced oversized current-weather panel spacing
-- Balanced destination, refresh button, and update timestamp
-- Improved forecast-card sizing
-- Mobile weather cards use two columns, then one on very small screens
-- Forecast dates now display in readable form such as `Sun, Jul 12`
-- Reduced weather advice padding
-- Updated cache version so the new CSS loads immediately
+## Weather dashboard
+- Offline-friendly weather icons
+- Current temperature and apparent temperature
+- Humidity, wind, gusts, rain, UV and cloud cover
+- Readable 7-day forecast cards
+- Sunrise and sunset
+- Nikon Z8 photography guidance
+- Practical safari conditions estimate
+- Zanzibar beach and sunset guidance
+- Cached forecast remains available offline
 
-Upload the ZIP contents to the repository root and overwrite matching files.
-Keep the existing `assets/` and `documents/` folders.
+Safari, beach and photography ratings are simple planning estimates based on weather data. They are not wildlife-sighting, road-safety or water-safety guarantees.
+
+Upload the ZIP contents to the repository root and overwrite matching files. Keep the existing `assets/` and `documents/` folders in GitHub.

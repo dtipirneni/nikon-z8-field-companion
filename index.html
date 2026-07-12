@@ -15,9 +15,9 @@
 
 
 
-<link href="css/styles.css?v=20.3" rel="stylesheet"/>
+<link href="css/styles.css?v=21.0" rel="stylesheet"/>
 </head><body><header class="top"><div><div class="eyebrow">Offline safari, travel & photography guide</div><h1>Tanzania<br/>Companion</h1><p class="lead">Your offline Tanzania safari, Zanzibar, travel, shopping, insurance and Nikon Z8 photography companion.</p><button class="install hide" id="installBtn">Install app</button></div></header><nav class="topnav"><a class="active" href="index.html">Today</a><a class="" href="trip.html">Trip</a><a class="" href="shoot.html">Shoot</a><a class="" href="wildlife.html">Zanzibar</a><a class="" href="more.html">More</a><input id="search" placeholder="Search this page"/></nav><nav class="page-subnav" aria-label="On this page"><a href="#dashboard">Today</a><a href="#weather">Weather</a><a href="#tripcheck">Trip checklist</a></nav><main><section class="section searchable v6-dashboard" id="dashboard">
-<div class="version-pill">Version 20.3 · Modular Static PWA</div><div class="update-status" id="appUpdateStatus">Latest version loaded</div>
+<div class="version-pill">Version 21.0 · Modular Static PWA</div><div class="update-status" id="appUpdateStatus">Latest version loaded</div>
 <div class="dash-hero">
 <div>
 <div class="eyebrow">Your field companion</div>
@@ -36,15 +36,16 @@
 <a class="quick-action" href="shoot.html#photo"><span>📷</span><b>Photo Banks</b><small>A–D setup and use</small></a>
 <a class="quick-action" href="wildlife.html#zanzibar"><span>🌴</span><b>Zanzibar</b><small>Beach, Stone Town and video</small></a>
 </div>
-</section><section class="section searchable" id="weather">
+</section><section class="section searchable weather-dashboard" id="weather">
 <div class="head">
-<div class="eyebrow">Live online forecast</div>
-<h2>Daily weather and photography conditions</h2>
-<p class="muted">Powered by Open‑Meteo. When online, the app refreshes the selected destination. When offline, it shows the last saved forecast and update time.</p>
+<div class="eyebrow">Live destination forecast</div>
+<h2>Weather, safari and photography conditions</h2>
+<p class="muted">Refresh when online. The most recent forecast, icons and guidance remain available offline.</p>
 </div>
+
 <div class="weather-controls">
 <label>Destination
-      <select id="weatherLocation">
+<select id="weatherLocation">
 <option value="auto">Auto from itinerary date</option>
 <option value="arusha">Arusha</option>
 <option value="tarangire">Tarangire</option>
@@ -56,16 +57,32 @@
 <button class="primary-btn" id="weatherRefresh">Refresh weather</button>
 <div class="weather-status" id="weatherStatus">Not loaded yet</div>
 </div>
-<div class="weather-current" id="weatherCurrent">
+
+<div class="weather-hero" id="weatherCurrent">
 <div class="weather-placeholder">Tap <b>Refresh weather</b> when online.</div>
 </div>
+
+<div class="weather-insight-grid">
+<article class="weather-insight" id="photoWeatherAdvice">
+<h3>📷 Photography</h3>
+<p>Photography guidance will appear after the forecast loads.</p>
+</article>
+<article class="weather-insight" id="safariWeatherAdvice">
+<h3>🦁 Safari conditions</h3>
+<p>Safari guidance will appear after the forecast loads.</p>
+</article>
+<article class="weather-insight" id="zanzibarWeatherAdvice">
+<h3>🏝 Zanzibar conditions</h3>
+<p>Beach and sunset guidance will appear after the forecast loads.</p>
+</article>
+</div>
+
+<h3 class="weather-forecast-title">7-day forecast</h3>
 <div class="weather-daily" id="weatherDaily"></div>
-<div class="weather-advice" id="photoWeatherAdvice">
-    Photography guidance will appear after the forecast loads.
-  </div>
+
 <details>
-<summary>How the weather feature works</summary>
-<p>The app requests current weather and a multi-day forecast from Open‑Meteo using latitude and longitude. No API key is stored. Forecasts are saved locally on the phone for offline reference. Forecast confidence is best in the shorter range; refresh again near each travel day.</p>
+<summary>How the weather guidance works</summary>
+<p>The app uses Open-Meteo forecast data and applies simple travel and photography rules for wind, rain, cloud cover, UV and temperature. Safari and beach ratings are practical planning estimates—not guarantees of wildlife sightings, road conditions or water safety.</p>
 </details>
 </section><section class="section searchable" id="tripcheck">
 <div class="head"><div class="eyebrow">Saved on this phone</div><h2>Trip readiness checklist</h2></div>
@@ -83,6 +100,6 @@
 <label><input data-tripcheck="offline" type="checkbox"/> App opened and tested in Airplane Mode</label>
 <label><input data-tripcheck="backup" type="checkbox"/> Photo backup workflow tested</label>
 </div>
-</section></main><footer class="app-footer">Tanzania Companion · Version 20.3 · Modular Static PWA</footer><nav aria-label="Primary" class="bottom-nav"><a class="active" href="index.html"><span>⌂</span><small>Today</small></a><a class="" href="trip.html"><span>✈️</span><small>Trip</small></a><a class="" href="shoot.html"><span>◎</span><small>Shoot</small></a><a class="" href="wildlife.html"><span>🦁</span><small>Zanzibar</small></a><a class="" href="more.html"><span>•••</span><small>More</small></a></nav>
-<script defer src="js/app.js?v=20.3"></script>
+</section></main><footer class="app-footer">Tanzania Companion · Version 21.0 · Modular Static PWA</footer><nav aria-label="Primary" class="bottom-nav"><a class="active" href="index.html"><span>⌂</span><small>Today</small></a><a class="" href="trip.html"><span>✈️</span><small>Trip</small></a><a class="" href="shoot.html"><span>◎</span><small>Shoot</small></a><a class="" href="wildlife.html"><span>🦁</span><small>Zanzibar</small></a><a class="" href="more.html"><span>•••</span><small>More</small></a></nav>
+<script defer src="js/app.js?v=21.0"></script>
 </body></html>

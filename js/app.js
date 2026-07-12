@@ -198,14 +198,32 @@
     }
   }));
 
-  // Weather.
+  // Premium weather dashboard.
   const locations = {
-    arusha:{name:"Arusha",lat:-3.3869,lon:36.6830},
-    tarangire:{name:"Tarangire",lat:-3.8333,lon:36.0000},
-    serengeti:{name:"Serengeti",lat:-2.3333,lon:34.8333},
-    ngorongoro:{name:"Ngorongoro",lat:-3.1618,lon:35.5877},
-    zanzibar:{name:"Zanzibar / Kiwengwa",lat:-5.989,lon:39.376}
+    arusha:{name:"Arusha",lat:-3.3869,lon:36.6830,type:"safari"},
+    tarangire:{name:"Tarangire",lat:-3.8333,lon:36.0000,type:"safari"},
+    serengeti:{name:"Serengeti",lat:-2.3333,lon:34.8333,type:"safari"},
+    ngorongoro:{name:"Ngorongoro",lat:-3.1618,lon:35.5877,type:"safari"},
+    zanzibar:{name:"Zanzibar / Kiwengwa",lat:-5.989,lon:39.376,type:"beach"}
   };
+
+  const weatherCode = code => {
+    if(code === 0) return {icon:"☀️",label:"Clear sky"};
+    if([1,2].includes(code)) return {icon:"🌤️",label:"Partly cloudy"};
+    if(code === 3) return {icon:"☁️",label:"Overcast"};
+    if([45,48].includes(code)) return {icon:"🌫️",label:"Fog"};
+    if([51,53,55,56,57].includes(code)) return {icon:"🌦️",label:"Drizzle"};
+    if([61,63,65,66,67,80,81,82].includes(code)) return {icon:"🌧️",label:"Rain"};
+    if([71,73,75,77,85,86].includes(code)) return {icon:"🌨️",label:"Snow"};
+    if([95,96,99].includes(code)) return {icon:"⛈️",label:"Thunderstorms"};
+    return {icon:"🌤️",label:"Variable conditions"};
+  };
+
+  const starRating = score => {
+    const full = Math.max(1,Math.min(5,Math.round(score)));
+    return "★".repeat(full) + "☆".repeat(5-full);
+  };
+
   const autoLocation = () => {
     const d = now.toISOString().slice(0,10);
     if (d >= "2026-08-02") return "zanzibar";
@@ -214,39 +232,126 @@
     if (d >= "2026-07-27") return "tarangire";
     return "arusha";
   };
+
   const weatherBtn = document.getElementById("weatherRefresh");
   if (weatherBtn) {
     const renderWeather = data => {
       const current = document.getElementById("weatherCurrent");
       const daily = document.getElementById("weatherDaily");
-      const advice = document.getElementById("photoWeatherAdvice");
-      current.innerHTML = `<h3>${data.name}</h3><p><strong>${Math.round(data.current.temperature_2m)}°C</strong> · Wind ${Math.round(data.current.wind_speed_10m)} km/h</p>`;
+      const photo = document.getElementById("photoWeatherAdvice");
+      const safari = document.getElementById("safariWeatherAdvice");
+      const zanzibar = document.getElementById("zanzibarWeatherAdvice");
+
+      const c = data.current;
+      const condition = weatherCode(c.weather_code);
+      const todayRain = data.daily.precipitation_probability_max?.[0] ?? 0;
+      const todayCloud = data.daily.cloud_cover_mean?.[0] ?? c.cloud_cover ?? 0;
+      const uv = data.daily.uv_index_max?.[0] ?? 0;
+      const sunrise = data.daily.sunrise?.[0]?.split("T")[1] || "—";
+      const sunset = data.daily.sunset?.[0]?.split("T")[1] || "—";
+      const wind = Math.round(c.wind_speed_10m || 0);
+      const gust = Math.round(c.wind_gusts_10m || wind);
+      const humidity = Math.round(c.relative_humidity_2m || 0);
+
+      current.innerHTML = `
+        <div class="weather-hero-main">
+          <div class="weather-icon-large" aria-hidden="true">${condition.icon}</div>
+          <div>
+            <div class="weather-location">${data.name}</div>
+            <div class="weather-temperature">${Math.round(c.temperature_2m)}°C</div>
+            <div class="weather-condition">${condition.label} · Feels like ${Math.round(c.apparent_temperature)}°C</div>
+          </div>
+        </div>
+        <div class="weather-metrics">
+          <div><span>💧</span><b>${humidity}%</b><small>Humidity</small></div>
+          <div><span>🌬️</span><b>${wind} km/h</b><small>Wind</small></div>
+          <div><span>💨</span><b>${gust} km/h</b><small>Gusts</small></div>
+          <div><span>☔</span><b>${todayRain}%</b><small>Rain</small></div>
+          <div><span>☀️</span><b>${uv.toFixed(1)}</b><small>UV max</small></div>
+          <div><span>☁️</span><b>${Math.round(todayCloud)}%</b><small>Cloud cover</small></div>
+        </div>`;
+
       daily.innerHTML = data.daily.time.slice(0,7).map((date,i)=>{
+        const wc = weatherCode(data.daily.weather_code[i]);
         const label = new Date(date + "T12:00:00").toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"});
-        return `<div class="weather-card"><b>${label}</b><div>${Math.round(data.daily.temperature_2m_max[i])}° / ${Math.round(data.daily.temperature_2m_min[i])}°</div><small>Rain ${data.daily.precipitation_probability_max[i] ?? 0}%</small></div>`;
+        return `<article class="weather-day-card">
+          <div class="weather-day-name">${label}</div>
+          <div class="weather-day-icon">${wc.icon}</div>
+          <div class="weather-day-condition">${wc.label}</div>
+          <div class="weather-day-temp">${Math.round(data.daily.temperature_2m_max[i])}° <span>${Math.round(data.daily.temperature_2m_min[i])}°</span></div>
+          <div class="weather-day-rain">☔ ${data.daily.precipitation_probability_max[i] ?? 0}%</div>
+        </article>`;
       }).join("");
-      advice.textContent = (data.current.wind_speed_10m > 25 ? "Windy: raise shutter speed and stabilize long lenses. " : "") + "Protect highlights, keep Auto ISO available, and refresh closer to each travel day.";
+
+      let photoScore = 5;
+      if(todayRain > 60) photoScore -= 1.5;
+      if(wind > 25) photoScore -= 1;
+      if(todayCloud > 85) photoScore -= .5;
+      if(uv > 8) photoScore -= .5;
+      const photoBank = wind > 25 || todayRain > 50 ? "Bank A — Action / weather" : todayCloud > 55 ? "Bank B — Portraits" : "Bank C — Environmental";
+      const photoAdvice = [
+        wind > 25 ? "Use a faster shutter and stabilize the long lens." : "Wind should be manageable for the monopod setup.",
+        todayCloud > 45 ? "Cloud cover may soften contrast and help portraits." : "Protect highlights in direct sun.",
+        uv > 7 ? "Strong UV: avoid harsh midday light when possible." : "Light should be easier to manage."
+      ].join(" ");
+
+      photo.innerHTML = `<h3>📷 Photography</h3>
+        <div class="condition-rating">${starRating(photoScore)}</div>
+        <p><b>Suggested setup:</b> ${photoBank}</p>
+        <p>${photoAdvice}</p>
+        <div class="condition-times"><span>🌅 Sunrise ${sunrise}</span><span>🌇 Sunset ${sunset}</span></div>`;
+
+      let safariScore = 5;
+      if(todayRain > 70) safariScore -= 1.5;
+      if(c.temperature_2m > 30) safariScore -= 1;
+      if(wind > 30) safariScore -= .5;
+      const safariLabel = safariScore >= 4.5 ? "Excellent" : safariScore >= 3.5 ? "Very good" : safariScore >= 2.5 ? "Mixed" : "Challenging";
+      safari.innerHTML = `<h3>🦁 Safari conditions</h3>
+        <div class="condition-rating">${starRating(safariScore)} <span>${safariLabel}</span></div>
+        <p><b>Best window:</b> Early morning and late afternoon.</p>
+        <p>${todayRain > 50 ? "Allow for wet roads and protect camera gear." : "Generally favorable for game drives."} ${c.temperature_2m > 28 ? "Animal activity may be lower around midday." : "Temperatures should support comfortable viewing."}</p>`;
+
+      let beachScore = 5;
+      if(todayRain > 55) beachScore -= 1.5;
+      if(wind > 25) beachScore -= 1;
+      if(uv > 9) beachScore -= .5;
+      const beachLabel = beachScore >= 4.5 ? "Excellent" : beachScore >= 3.5 ? "Very good" : beachScore >= 2.5 ? "Fair" : "Poor";
+      zanzibar.innerHTML = `<h3>🏝 Zanzibar conditions</h3>
+        <div class="condition-rating">${starRating(beachScore)} <span>${beachLabel}</span></div>
+        <p><b>Beach:</b> ${todayRain < 35 ? "Favorable" : "Showers possible"} · <b>Wind:</b> ${wind < 20 ? "Light" : wind < 30 ? "Moderate" : "Strong"}</p>
+        <p><b>Sunset:</b> ${sunset}. ${uv > 7 ? "Use strong sun protection." : "UV is moderate."} Swimming and snorkeling conditions should still be confirmed locally.</p>`;
     };
-    const cached = safeGet("weather-cache", null);
-    if (cached) renderWeather(cached);
+
+    const cached = safeGet("weather-cache-v21", null);
+    if (cached) {
+      renderWeather(cached);
+      const status = document.getElementById("weatherStatus");
+      status.textContent = `Saved forecast · ${new Date(cached.savedAt || Date.now()).toLocaleString()}`;
+    }
+
     weatherBtn.addEventListener("click", async () => {
       const status = document.getElementById("weatherStatus");
+      weatherBtn.disabled = true;
       try {
-        status.textContent = "Loading…";
+        status.textContent = "Loading forecast…";
         let key = document.getElementById("weatherLocation").value;
         if (key === "auto") key = autoLocation();
         const loc = locations[key];
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto`;
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,cloud_cover,wind_speed_10m,wind_gusts_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,cloud_cover_mean,uv_index_max,sunrise,sunset&timezone=auto`;
         const response = await fetch(url);
         if (!response.ok) throw new Error("Weather request failed");
         const data = await response.json();
         data.name = loc.name;
-        safeSet("weather-cache", data);
+        data.locationType = loc.type;
+        data.savedAt = Date.now();
+        safeSet("weather-cache-v21", data);
         renderWeather(data);
         status.textContent = "Updated " + new Date().toLocaleTimeString();
-      } catch (e) {
+      } catch (error) {
         status.textContent = cached ? "Offline — showing saved forecast" : "Weather unavailable";
-        console.error(e);
+        console.error(error);
+      } finally {
+        weatherBtn.disabled = false;
       }
     });
   }

@@ -1,0 +1,9 @@
+{
+  "name": "Tanzania Companion",
+  "short_name": "Tanzania",
+  "description": "Offline safari, travel, shopping, contacts, insurance and photography companion.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#11150f",
+  "theme_color": "#11150f"
+}

@@ -1,10 +1,14 @@
-# Tanzania Companion Version 23 — Interactive Safari Field Journal
+# Tanzania Companion Version 23.1 — Restored Species + Field Journal
 
-Field Guide sections and submenu are aligned exactly:
-1. Journal
-2. Add sighting
-3. Species guide
-4. Ethics
-5. Images
+This release fixes a packaging bug in Version 23.0 that preserved only the first species card.
 
-The journal records species, date, time, itinerary-derived location, specific place, behaviors, photographed status, photo style, notes and attached images. Metadata stays in localStorage; images stay in IndexedDB. Nothing is uploaded.
+Version 23.1 includes:
+- all 19 original species cards;
+- the complete interactive safari journal;
+- aligned submenu and section order:
+  1. Journal
+  2. Add sighting
+  3. Species guide
+  4. Ethics
+  5. Images
+- a new cache version so the corrected page replaces stale offline content.

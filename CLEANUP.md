@@ -1,28 +1,11 @@
-# GitHub Cleanup After Version 21.1
+# Version 22 cleanup
 
-## Delete this exact file
+No additional GitHub deletion is required after Version 22 if Version 21.1 was already cleaned.
 
-- `wildlife.html`
-
-It is replaced by:
-
-- `zanzibar.html`
-
-## Do not delete
-
-- `assets/`
-- `documents/`
-- `css/styles.css`
-- `js/app.js`
-- `index.html`
-- `trip.html`
-- `shoot.html`
-- `zanzibar.html`
-- `more.html`
-- `404.html`
-- `manifest.webmanifest`
-- `sw.js`
-- `icon.svg`
-- `README.md`
-
-The earlier backup folders, version-specific CSS files, enhancement JavaScript files and builder scripts were already removed from the GitHub repository before this release.
+Keep:
+- field-guide.html
+- assets/species/
+- all existing assets and documents
+- css/styles.css
+- js/app.js
+- sw.js

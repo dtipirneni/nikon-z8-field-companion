@@ -414,6 +414,39 @@
     });
   }
 
+
+  // Species and behavior field guide.
+  const speciesCards = [...document.querySelectorAll(".species-card")];
+  const speciesFilters = [...document.querySelectorAll("[data-species-filter]")];
+  const speciesChecks = [...document.querySelectorAll("[data-species-check]")];
+
+  const updateSpeciesProgress = () => {
+    if (!speciesChecks.length) return;
+    const done = speciesChecks.filter(box => box.checked).length;
+    const text = document.getElementById("speciesProgressText");
+    const bar = document.getElementById("speciesProgressBar");
+    if (text) text.textContent = `${done} of ${speciesChecks.length} recorded`;
+    if (bar) bar.style.width = `${Math.round(done / speciesChecks.length * 100)}%`;
+  };
+
+  speciesChecks.forEach(box => {
+    const key = `species-v22-${box.dataset.speciesCheck}`;
+    box.checked = localStorage.getItem(key) === "1";
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      updateSpeciesProgress();
+    });
+  });
+  updateSpeciesProgress();
+
+  speciesFilters.forEach(button => button.addEventListener("click", () => {
+    speciesFilters.forEach(item => item.classList.toggle("active", item === button));
+    const target = button.dataset.speciesFilter;
+    speciesCards.forEach(card => {
+      card.classList.toggle("hide", target !== "all" && !card.dataset.locations.split(" ").includes(target));
+    });
+  }));
+
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(console.error));
   }

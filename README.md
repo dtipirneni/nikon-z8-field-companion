@@ -1,39 +1,21 @@
-# Tanzania Companion Version 21.1 — Clean Final Release
+# Tanzania Companion Version 22 — Species & Behavior
 
-Direct upload package. No builders, patches or command files.
+This release adds an offline field guide for late-July and early-August travel through Serengeti, Tarangire, Ngorongoro and Zanzibar.
 
-## Final structure
+## New
+- 19 mammals and birds
+- common and scientific names
+- location and seasonal context
+- behaviors to anticipate
+- action cues before the moment happens
+- close-up storytelling suggestions
+- environmental/habitat composition suggestions
+- location filters
+- persistent seen/photographed checklist
+- responsible wildlife-photography guidance
+- original offline-safe species icons
 
-- `index.html`
-- `trip.html`
-- `shoot.html`
-- `zanzibar.html`
-- `more.html`
-- `404.html`
-- `css/styles.css`
-- `js/app.js`
-- `manifest.webmanifest`
-- `sw.js`
-- `icon.svg`
-- `README.md`
-- `CLEANUP.md`
+## Images
+This release intentionally uses original SVG icons instead of unlicensed wildlife photographs. A commercial photo release should include a documented license, source, photographer and attribution record for every photograph.
 
-Keep the existing GitHub `assets/` and `documents/` folders.
-
-## Weather and photography
-
-The weather dashboard now includes:
-
-- weather icons;
-- golden-hour and blue-hour windows;
-- sunrise and sunset;
-- humidity, wind, gusts, rain, UV and cloud cover;
-- suggested Nikon bank;
-- recommended lens;
-- CPL guidance;
-- dust-risk estimate;
-- practical wildlife-light windows;
-- Zanzibar beach guidance;
-- cached offline forecast.
-
-Golden and blue hours use practical approximations around the forecast sunrise and sunset. Exact photographic light varies with terrain, cloud and atmospheric conditions.
+Keep the existing `assets/` and `documents/` folders. Upload this package to the repository root and overwrite matching files.

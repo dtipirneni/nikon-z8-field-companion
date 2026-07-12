@@ -1,17 +1,21 @@
-const CACHE = 'z8-tanzania-v11';
+const CACHE = 'z8-tanzania-v13';
 const CORE = [
-  './',
-  './index.html',
-  './css/styles.css',
-  './js/app.js',
-  './manifest.webmanifest',
-  './icon.svg',
-  './assets/exposure-triangle-purple.png',
-  './assets/photography-cheat-sheet.jpeg',
-  './assets/exposure-triangle-green.png',
-  './assets/tipping-sheet.png',
-  './assets/as-salaam-flight-confirmation.png',
-  './documents/zanzibar-insurance.pdf'
+  "./",
+  "./index.html",
+  "./trip.html",
+  "./shoot.html",
+  "./wildlife.html",
+  "./more.html",
+  "./css/styles.css",
+  "./js/app.js",
+  "./manifest.webmanifest",
+  "./icon.svg",
+  "./assets/exposure-triangle-purple.png",
+  "./assets/photography-cheat-sheet.jpeg",
+  "./assets/exposure-triangle-green.png",
+  "./assets/tipping-sheet.png",
+  "./assets/as-salaam-flight-confirmation.png",
+  "./documents/zanzibar-insurance.pdf"
 ];
 
 self.addEventListener('install', event => {

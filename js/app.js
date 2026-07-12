@@ -325,3 +325,12 @@ document.querySelectorAll('[data-todo-filter]').forEach(btn=>btn.addEventListene
   renderTodos();
 }));
 renderTodos();
+
+
+// Version 13: mark active static page and smooth page transitions.
+document.querySelectorAll('a[href$=".html"], a[href*=".html#"]').forEach(a=>{
+  a.addEventListener('click',()=>{
+    if(a.origin === location.origin) document.body.classList.add('page-loading');
+  });
+});
+window.addEventListener('pageshow',()=>document.body.classList.remove('page-loading'));

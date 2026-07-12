@@ -1,4 +1,4 @@
-# Z8 Personal Safari Companion — Version 11
+# Z8 Tanzania Modular Static Companion — Version 13
 
 A mobile-friendly Progressive Web App for Nikon Z8 setup, Serengeti wildlife photography, and Zanzibar travel photography.
 
@@ -52,3 +52,20 @@ Adds live Open-Meteo weather with offline caching, photography advice, and a Zan
 ## Version 11
 
 Adds a local travel-protection wallet, embedded Zanzibar insurance certificate, safari guide profile, Shaazmin and Leopard Tours contact cards, and custom persistent to-dos.
+
+
+## Version 12
+
+Reorders menus to match page layout, moves tipping into the Trip flow before Shoot, groups Photo and Video Banks under Shoot, creates separate Travel Protection, Documents, and To-dos destinations, and removes the What's New panel.
+
+## Version 13
+
+The app is now a static multi-page PWA:
+
+- Today
+- Trip
+- Shoot
+- Wildlife & Zanzibar
+- More
+
+It still requires no backend and runs on GitHub Pages. Open-Meteo weather updates only when online; all other pages and cached documents remain available offline.

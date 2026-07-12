@@ -236,3 +236,26 @@ main{display:block!important;visibility:visible!important;opacity:1!important}
   .todo-add{grid-template-columns:1fr}
   .pdf-preview{height:430px}
 }
+
+
+/* Version 12 navigation reorganization */
+section{scroll-margin-top:76px}
+.shoot-hub{padding-top:4px}
+.shoot-actions{grid-template-columns:repeat(4,1fr)}
+@media(max-width:760px){
+  section{scroll-margin-top:18px}
+  .shoot-actions{grid-template-columns:1fr 1fr}
+  .bottom-nav a{min-width:52px}
+  .bottom-nav small{font-size:.64rem}
+}
+
+
+/* Version 13 modular static PWA */
+.page-header{padding:34px 20px 22px;background:linear-gradient(145deg,#162019,#0d120f);border-bottom:1px solid var(--line)}
+.page-header h1{font-size:clamp(2rem,7vw,3.4rem);margin:.25rem 0 0}
+.topnav a.active,.bottom-nav a.active{color:var(--gold)}
+.bottom-nav a.active span{transform:translateY(-1px)}
+body.page-loading main{opacity:.35}
+@media(max-width:760px){
+  .page-header{padding-top:calc(22px + env(safe-area-inset-top))}
+}

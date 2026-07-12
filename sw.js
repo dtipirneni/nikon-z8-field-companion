@@ -1,14 +1,14 @@
-const CACHE = 'z8-tanzania-v6';
+const CACHE = 'z8-tanzania-v8-1';
 const CORE = [
-  "./",
-  "./index.html",
-  "./css/styles.css",
-  "./js/app.js",
-  "./manifest.webmanifest",
-  "./icon.svg",
-  "./assets/exposure-triangle-purple.png",
-  "./assets/photography-cheat-sheet.jpeg",
-  "./assets/exposure-triangle-green.png"
+  './',
+  './index.html',
+  './css/styles.css',
+  './js/app.js',
+  './manifest.webmanifest',
+  './icon.svg',
+  './assets/exposure-triangle-purple.png',
+  './assets/photography-cheat-sheet.jpeg',
+  './assets/exposure-triangle-green.png'
 ];
 
 self.addEventListener('install', event => {
@@ -27,14 +27,33 @@ self.addEventListener('activate', event => {
 
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
+
+  const isPageNavigation = event.request.mode === 'navigate';
+
+  if (isPageNavigation) {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put('./index.html', copy));
+          return response;
+        })
+        .catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(cached => {
-      if (cached) return cached;
-      return fetch(event.request).then(response => {
-        const copy = response.clone();
-        caches.open(CACHE).then(cache => cache.put(event.request, copy));
-        return response;
-      }).catch(() => caches.match('./index.html'));
+      const networkFetch = fetch(event.request)
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put(event.request, copy));
+          return response;
+        })
+        .catch(() => cached);
+
+      return cached || networkFetch;
     })
   );
 });

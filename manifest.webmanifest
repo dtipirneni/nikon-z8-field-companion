@@ -1,11 +1,11 @@
 {
-  "name": "Z8 Tanzania Field Companion",
+  "name": "Z8 Tanzania Complete Trip Companion",
   "short_name": "Z8 Tanzania",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#0c100d",
   "theme_color": "#11150f",
-  "description": "Nikon Z8 safari, Zanzibar and trip companion for the Rajendra family Tanzania journey.",
+  "description": "Complete Nikon Z8, safari, Zanzibar, flights, hotels, meals and itinerary companion.",
   "icons": [
     {
       "src": "icon.svg",

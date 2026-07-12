@@ -8,7 +8,7 @@ const search=document.getElementById('search');search.oninput=()=>{const q=searc
 let deferredPrompt;const ib=document.getElementById('installBtn');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;ib.classList.remove('hide')});ib.onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;ib.classList.add('hide')}};
 if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
 
-// Version 6: trip countdown and current-day highlighting
+// Version 8: trip countdown and current-day highlighting
 (function(){
   const tripStart = new Date('2026-07-23T00:00:00-07:00');
   const now = new Date();
@@ -22,7 +22,7 @@ if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.se
   });
 })();
 
-// Version 6: Shoot Now assistant
+// Version 8: Shoot Now assistant
 const subjectEl = document.getElementById('shootSubject');
 const motionEl = document.getElementById('shootMotion');
 const lightEl = document.getElementById('shootLight');
@@ -57,8 +57,8 @@ if(recommendBtn){
   });
 }
 
-// Version 6: trip checklist persistence
-const tripCheckKey='z8-trip-check-v6';
+// Version 8: trip checklist persistence
+const tripCheckKey='z8-trip-check-v8';
 const tripSaved=JSON.parse(localStorage.getItem(tripCheckKey)||'{}');
 document.querySelectorAll('[data-tripcheck]').forEach(cb=>{
   cb.checked=!!tripSaved[cb.dataset.tripcheck];
@@ -67,3 +67,13 @@ document.querySelectorAll('[data-tripcheck]').forEach(cb=>{
     localStorage.setItem(tripCheckKey,JSON.stringify(tripSaved));
   });
 });
+
+// v8.1: force a one-time reload when a new service worker takes control.
+if ('serviceWorker' in navigator) {
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (refreshing) return;
+    refreshing = true;
+    window.location.reload();
+  });
+}

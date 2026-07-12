@@ -90,3 +90,38 @@ body{padding-bottom:76px}
   .rec-grid{grid-template-columns:1fr 1fr}
   .trip-day{grid-template-columns:58px 1fr;gap:10px}.timeline:before{left:28px}.day-date{font-size:.75rem;padding:9px 4px}
 }
+
+
+/* Version 8 itinerary, hotels, meals and family planner */
+.trip-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:22px}
+.summary-card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:14px}
+.summary-card span{display:block;color:var(--muted);font-size:.8rem}.summary-card strong{display:block;margin-top:5px}
+.section-subtitle{margin:28px 0 14px}
+.itinerary-meta{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 12px}
+.itinerary-meta span{background:#111711;border:1px solid var(--line);border-radius:999px;padding:5px 9px;font-size:.78rem}
+.schedule-table{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}
+.schedule-table>div{display:flex;justify-content:space-between;gap:12px;background:#111711;border:1px solid var(--line);border-radius:10px;padding:9px}
+.schedule-table span{text-align:right;color:var(--muted)}
+.hotel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}
+.hotel-card,.family-card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:17px;padding:17px}
+.hotel-photo-tip{margin-top:12px;background:#111711;border-left:4px solid var(--gold);border-radius:8px;padding:10px}
+.meal-table{display:flex;flex-direction:column;gap:7px}
+.meal-row{display:grid;grid-template-columns:90px repeat(3,100px) 1fr;gap:8px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;align-items:center}
+.meal-head{font-weight:800;color:var(--gold);background:#111711}
+.family-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+@media(max-width:760px){
+  .schedule-table{grid-template-columns:1fr}
+  .meal-row{grid-template-columns:70px repeat(3,70px) 1fr;font-size:.78rem;overflow-x:auto}
+}
+
+/* v8.1 iPhone rendering safeguards */
+html,body{min-height:100%;width:100%;overflow-x:hidden}
+main{display:block!important;visibility:visible!important;opacity:1!important}
+.section{display:block;visibility:visible}
+.update-status{display:inline-block;margin-left:8px;font-size:.72rem;color:var(--ok)}
+@media(max-width:760px){
+  body{min-height:100svh}
+  main{min-height:calc(100svh - 72px);padding-bottom:110px}
+  .top{min-height:42svh;padding:32px 20px}
+  .bottom-nav{top:auto!important;bottom:0!important}
+}

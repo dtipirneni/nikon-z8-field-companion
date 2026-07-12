@@ -17,11 +17,11 @@
 </head>
 <body>
 <header class="top"><div><div class="eyebrow">Factory-default beginner setup</div><h1>Nikon Z8<br>Tanzania Field Companion</h1><p class="lead">A factory-default Nikon Z8 setup assistant plus field guides for Serengeti wildlife and Zanzibar beaches, Stone Town, people, dhows, sunsets, architecture, and travel video.</p><button id="installBtn" class="install hide">Install app</button></div></header>
-<nav class="topnav"><a href="#dashboard">Home</a><a href="#trip">Trip</a><a href="#shootnow">Shoot Now</a><a href="#photo">Banks</a><a href="#zanzibar">Zanzibar</a><a href="#controls">Controls</a><a href="#library">Learn</a><input id="search" placeholder="Search"></nav>
+<nav class="topnav"><a href="#dashboard">Home</a><a href="#trip">Trip</a><a href="#hotels">Hotels</a><a href="#meals">Meals</a><a href="#shootnow">Shoot Now</a><a href="#photo">Banks</a><a href="#zanzibar">Zanzibar</a><a href="#controls">Controls</a><a href="#library">Learn</a><input id="search" placeholder="Search"></nav>
 <main>
 
 <section id="dashboard" class="section searchable v6-dashboard">
-  <div class="version-pill">Version 6.0 · Tanzania + Zanzibar</div>
+  <div class="version-pill">Version 8.1 · iPhone Cache Fix</div><div id="appUpdateStatus" class="update-status">Latest version loaded</div>
   <div class="dash-hero">
     <div>
       <div class="eyebrow">Your field companion</div>
@@ -43,7 +43,7 @@
   </div>
 
   <details class="whats-new" open>
-    <summary><b>What’s new in Version 6</b></summary>
+    <summary><b>What’s new in Version 8</b></summary>
     <ul>
       <li>Native-style bottom navigation for one-handed iPhone use.</li>
       <li>Your complete flights and 12-day land itinerary.</li>
@@ -55,79 +55,358 @@
   </details>
 </section>
 
-<section id="trip" class="section searchable">
-  <div class="head"><div class="eyebrow">Your itinerary</div><h2>Flights and day-by-day photography plan</h2>
-  <p class="muted">Dates and land arrangements are based on your Lion World Travel itinerary and the flight schedule you provided.</p></div>
 
-  <div class="flight-grid">
-    <article class="flight-card"><span>Thu 23 Jul</span><h3>LAX → DOH</h3><p>16:20 → 18:40 (+1)</p><small>Qatar Airways · 15h 20m</small></article>
-    <article class="flight-card"><span>Fri 24 Jul</span><h3>DOH → JRO</h3><p>02:10 → 07:25</p><small>5h 15m · Doha transit ~8h 30m</small></article>
-    <article class="flight-card"><span>Wed 5 Aug</span><h3>ZNZ → KGL</h3><p>18:40 → 20:10</p><small>RwandAir · 2h 30m</small></article>
-    <article class="flight-card"><span>Wed 5 Aug</span><h3>KGL → DOH</h3><p>23:20 → 06:10 (+1)</p><small>5h 50m · Kigali transit ~3h 10m</small></article>
-    <article class="flight-card"><span>Thu 6 Aug</span><h3>DOH → LAX</h3><p>08:00 → 14:00</p><small>Qatar Airways · 16h</small></article>
+<section id="trip" class="section searchable">
+  <div class="head">
+    <div class="eyebrow">Complete trip itinerary</div>
+    <h2>Flights, hotels, meals, transfers and photography plan</h2>
+    <p class="muted">Journey: 23 July–6 August 2026. Land itinerary: 25 July–5 August 2026.</p>
   </div>
 
-  <div class="timeline" id="tripTimeline">
+  <div class="trip-summary-grid">
+    <div class="summary-card"><span>Travelers</span><strong>Rajendra, Deepthi, Sanvi, Eesha</strong></div>
+    <div class="summary-card"><span>Trip length</span><strong>15 calendar days</strong></div>
+    <div class="summary-card"><span>Land itinerary</span><strong>12 days</strong></div>
+    <div class="summary-card"><span>Route</span><strong>LAX → Doha → Kilimanjaro → Safari → Zanzibar → Kigali → Doha → LAX</strong></div>
+  </div>
+
+  <h3 class="section-subtitle">International flights</h3>
+  <div class="flight-grid">
+    <article class="flight-card"><span>Thu 23 Jul 2026</span><h3>LAX → DOH</h3><p>16:20 → 18:40 (+1)</p><small>Qatar Airways · 15h 20m · Nonstop</small></article>
+    <article class="flight-card"><span>Fri 24 Jul 2026</span><h3>DOH → JRO</h3><p>02:10 → 07:25</p><small>5h 15m · Doha transit about 8h 30m</small></article>
+    <article class="flight-card"><span>Wed 5 Aug 2026</span><h3>ZNZ → KGL</h3><p>18:40 → 20:10</p><small>RwandAir · 2h 30m</small></article>
+    <article class="flight-card"><span>Wed 5 Aug 2026</span><h3>KGL → DOH</h3><p>23:20 → 06:10 (+1)</p><small>5h 50m · Kigali transit about 3h 10m</small></article>
+    <article class="flight-card"><span>Thu 6 Aug 2026</span><h3>DOH → LAX</h3><p>08:00 → 14:00</p><small>Qatar Airways · 16h · Doha transit about 1h 50m</small></article>
+  </div>
+
+  <h3 class="section-subtitle">Day-by-day land itinerary</h3>
+  <div class="timeline itinerary-complete" id="tripTimeline">
+
     <article class="trip-day" data-date="2026-07-25">
-      <div class="day-date">Jul 25</div><div><h3>Arrive Kilimanjaro → Arusha</h3>
-      <p>Meet Leopard Tours and transfer to Gran Meliá Arusha.</p>
-      <div class="photo-plan"><b>Photo priority:</b> arrival story, Mount Meru if visible, hotel grounds and family travel moments.<br><b>Start with:</b> Bank C · 1/500 · f/5.6–8 · Auto ISO.</div></div>
+      <div class="day-date">Jul 25</div>
+      <div>
+        <h3>Arrive Kilimanjaro → Arusha</h3>
+        <div class="itinerary-meta">
+          <span>📍 Kilimanjaro / Arusha</span><span>🏨 Gran Meliá Arusha</span><span>🛏 Deluxe City View Room</span><span>🍽 Dinner included</span>
+        </div>
+        <p>Arrive at Kilimanjaro International Airport. Meet the Lion World Travel/Leopard Tours representative in the arrivals hall and transfer to Gran Meliá Arusha.</p>
+        <div class="schedule-table">
+          <div><b>Arrival</b><span>07:25 at JRO</span></div>
+          <div><b>Transfer</b><span>Airport to Gran Meliá Arusha</span></div>
+          <div><b>Meals</b><span>Dinner</span></div>
+          <div><b>Drinks & gratuities</b><span>Pay directly</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> airport arrival story, family travel moments, hotel grounds, Mount Meru if visible. Start with Bank C, 1/500, f/5.6–f/8, Auto ISO.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-07-26">
-      <div class="day-date">Jul 26</div><div><h3>Arusha city tour</h3>
-      <p>Relaxed morning; 2–3 hour city tour in the afternoon.</p>
-      <div class="photo-plan"><b>Photo priority:</b> street scenes, Clock Tower, market colors, architecture and candid family frames.<br><b>Use:</b> Bank B for people; Bank C for streets and buildings.</div></div>
+      <div class="day-date">Jul 26</div>
+      <div>
+        <h3>Arusha City Tour</h3>
+        <div class="itinerary-meta">
+          <span>📍 Arusha</span><span>🏨 Gran Meliá Arusha</span><span>🍳 Breakfast</span><span>🥗 Lunch</span><span>🍽 Dinner</span>
+        </div>
+        <p>Relax in the morning. Enjoy lunch at the hotel, then depart for a 2–3 hour Arusha city tour.</p>
+        <div class="schedule-table">
+          <div><b>Morning</b><span>At leisure</span></div>
+          <div><b>Afternoon</b><span>2–3 hour city tour</span></div>
+          <div><b>Tour focus</b><span>Clock Tower, Boma Road, museum, central market, Uhuru Road</span></div>
+          <div><b>Meals</b><span>Breakfast, lunch and dinner</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> street scenes, Clock Tower, market color, architecture and candid family frames. Bank B for people; Bank C for buildings and city context.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-07-27">
-      <div class="day-date">Jul 27</div><div><h3>Arusha → Tarangire</h3>
-      <p>09:00 pickup; afternoon game drive; Tarangire Sopa Lodge.</p>
-      <div class="photo-plan"><b>Photo priority:</b> elephants, baobabs, birds and late-afternoon light.<br><b>Use:</b> Bank A for moving wildlife; Bank C at 180–300 mm for elephant + baobab context.</div></div>
+      <div class="day-date">Jul 27</div>
+      <div>
+        <h3>Arusha → Tarangire National Park</h3>
+        <div class="itinerary-meta">
+          <span>📍 Tarangire</span><span>🏨 Tarangire Sopa Lodge</span><span>🛏 Standard Room</span><span>🍳 B</span><span>🥗 L</span><span>🍽 D</span>
+        </div>
+        <p>Scenic drive to Tarangire National Park, game drive en route to the lodge, lunch, then an afternoon game drive.</p>
+        <div class="schedule-table">
+          <div><b>Pickup</b><span>09:00 · Gran Meliá Arusha reception</span></div>
+          <div><b>Arrival</b><span>About 12:00 · Tarangire Sopa Lodge</span></div>
+          <div><b>Afternoon</b><span>Game drive</span></div>
+          <div><b>Remember</b><span>Light sweater, insect repellent, camera, binoculars</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> elephants, baobabs, birds, giraffes, sunset. Bank A for motion; Bank C at 180–300 mm for elephants beneath baobabs.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-07-28">
-      <div class="day-date">Jul 28</div><div><h3>Tarangire → Serengeti</h3>
-      <p>08:00 departure; long scenic transfer; expected arrival around 16:00.</p>
-      <div class="photo-plan"><b>Photo priority:</b> roadside wildlife, changing landscapes and first Serengeti views.<br><b>Keep ready:</b> Bank A, 1/2000, Wide C1, Animals, Auto ISO.</div></div>
+      <div class="day-date">Jul 28</div>
+      <div>
+        <h3>Tarangire → Serengeti National Park</h3>
+        <div class="itinerary-meta">
+          <span>📍 Serengeti</span><span>🏨 TNS Kimarishe Serengeti Lodge</span><span>🛏 Standard Room</span><span>🍳 B</span><span>🥪 Picnic L</span><span>🍽 D</span>
+        </div>
+        <p>Drive to Serengeti National Park with a picnic lunch en route. Wildlife may appear well before entering the park.</p>
+        <div class="schedule-table">
+          <div><b>Pickup</b><span>08:00 · Tarangire Sopa Lodge reception</span></div>
+          <div><b>Arrival</b><span>About 16:00 · TNS Kimarishe Serengeti Lodge</span></div>
+          <div><b>Drive</b><span>Long scenic transfer with wildlife viewing</span></div>
+          <div><b>Meals</b><span>Breakfast, picnic lunch and dinner</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> changing landscapes, roadside wildlife, first Serengeti views. Keep Bank A ready at 1/2000, Wide C1, Animals, Auto ISO.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-07-29">
-      <div class="day-date">Jul 29</div><div><h3>Serengeti game drives</h3>
-      <p>Morning and afternoon drives; optional balloon flight.</p>
-      <div class="photo-plan"><b>Photo priority:</b> predators, behavior, birds, sunrise, dust and silhouettes.<br><b>Workflow:</b> secure Bank A action frames, switch to B for portraits, then C for environmental storytelling.</div></div>
+      <div class="day-date">Jul 29</div>
+      <div>
+        <h3>Serengeti National Park</h3>
+        <div class="itinerary-meta">
+          <span>📍 Serengeti</span><span>🏨 TNS Kimarishe Serengeti Lodge</span><span>🍳 B</span><span>🥗 L</span><span>🍽 D</span>
+        </div>
+        <p>Morning and afternoon game drives. Optional early-morning hot-air balloon safari, weather dependent and at extra cost.</p>
+        <div class="schedule-table">
+          <div><b>Morning</b><span>Game drive</span></div>
+          <div><b>Afternoon</b><span>Game drive</span></div>
+          <div><b>Optional</b><span>Hot-air balloon safari before dawn</span></div>
+          <div><b>Meals</b><span>Breakfast, lunch and dinner</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> predators, behavior, birds, sunrise, dust and silhouettes. Secure Bank A action shots, switch to B for portraits, then C for habitat storytelling.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-07-30">
-      <div class="day-date">Jul 30</div><div><h3>Serengeti game drives</h3>
-      <p>Full wildlife photography day.</p>
-      <div class="photo-plan"><b>Photo priority:</b> sequences—wide habitat, medium interaction, tight portrait and behavior detail.<br><b>Goal:</b> tell one complete visual story for each major sighting.</div></div>
+      <div class="day-date">Jul 30</div>
+      <div>
+        <h3>Serengeti National Park</h3>
+        <div class="itinerary-meta">
+          <span>📍 Serengeti</span><span>🏨 TNS Kimarishe Serengeti Lodge</span><span>🍳 B</span><span>🥗 L</span><span>🍽 D</span>
+        </div>
+        <p>Morning and afternoon game-viewing activities with time to observe and photograph wildlife.</p>
+        <div class="schedule-table">
+          <div><b>Morning</b><span>Game viewing</span></div>
+          <div><b>Afternoon</b><span>Game viewing</span></div>
+          <div><b>Primary goal</b><span>Complete visual story for each major sighting</span></div>
+          <div><b>Meals</b><span>Breakfast, lunch and dinner</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> create a sequence—wide habitat, medium interaction, tight portrait and behavior detail.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-07-31">
-      <div class="day-date">Jul 31</div><div><h3>Serengeti → Ngorongoro</h3>
-      <p>08:00 departure; game drive and picnic en route; expected arrival around 14:00.</p>
-      <div class="photo-plan"><b>Photo priority:</b> transition landscapes, Maasai-country context and crater-rim views.<br><b>Use:</b> Bank C · f/8 · 1/800 · Auto ISO.</div></div>
+      <div class="day-date">Jul 31</div>
+      <div>
+        <h3>Serengeti → Ngorongoro Conservation Area</h3>
+        <div class="itinerary-meta">
+          <span>📍 Ngorongoro</span><span>🏨 TNS Ngorongoro Rim Lodge</span><span>🛏 Standard Room</span><span>🍳 B</span><span>🥪 Picnic L</span><span>🍽 D</span>
+        </div>
+        <p>Drive to Ngorongoro Conservation Area with a game drive and picnic lunch en route.</p>
+        <div class="schedule-table">
+          <div><b>Pickup</b><span>08:00 · TNS Kimarishe reception</span></div>
+          <div><b>Arrival</b><span>About 14:00 · TNS Ngorongoro Rim Lodge</span></div>
+          <div><b>Afternoon</b><span>At leisure</span></div>
+          <div><b>Meals</b><span>Breakfast, picnic lunch and dinner</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> transition landscapes, Maasai-country context and crater-rim views. Bank C, f/8, 1/800, Auto ISO.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-08-01">
-      <div class="day-date">Aug 1</div><div><h3>Ngorongoro Crater</h3>
-      <p>Crater descent, half-day game drive and private scenic lunch.</p>
-      <div class="photo-plan"><b>Photo priority:</b> rhino, lions, large mammals, flamingos, crater layers and weather.<br><b>Use:</b> Bank A for wildlife; Bank C for crater panoramas. Expect mist and lower light near the rim.</div></div>
+      <div class="day-date">Aug 1</div>
+      <div>
+        <h3>Ngorongoro Crater Tour</h3>
+        <div class="itinerary-meta">
+          <span>📍 Ngorongoro Crater</span><span>🏨 TNS Ngorongoro Rim Lodge</span><span>🍳 B</span><span>🥗 Private lunch</span><span>🍽 D</span>
+        </div>
+        <p>Descend about 2,000 feet into the crater for a half-day game drive and private lunch at a scenic location.</p>
+        <div class="schedule-table">
+          <div><b>Morning</b><span>Crater descent and game drive</span></div>
+          <div><b>Lunch</b><span>Private scenic lunch inside the crater</span></div>
+          <div><b>Wildlife focus</b><span>Rhino, lion, elephant, buffalo, flamingos, hippos</span></div>
+          <div><b>Meals</b><span>Breakfast, lunch and dinner</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> Bank A for wildlife; Bank C for crater panoramas. Be ready for mist, backlight and lower light near the rim.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-08-02">
-      <div class="day-date">Aug 2</div><div><h3>Ngorongoro → Arusha → Zanzibar</h3>
-      <p>07:30 departure; As Salaam Air 14:30 → 15:30; transfer to Neptune Pwani.</p>
-      <div class="photo-plan"><b>Photo priority:</b> aerial landscapes if allowed, resort arrival, palms and first beach light.<br><b>Switch:</b> from safari Bank A default to Zanzibar Bank C default.</div></div>
+      <div class="day-date">Aug 2</div>
+      <div>
+        <h3>Ngorongoro → Arusha → Zanzibar</h3>
+        <div class="itinerary-meta">
+          <span>📍 Zanzibar</span><span>🏨 Neptune Pwani Beach Resort & Spa</span><span>🛏 Deluxe Beach Side Room</span><span>🍳 B</span><span>🥗 L</span><span>🍽 D</span>
+        </div>
+        <p>Drive to Arusha, lunch at a local restaurant, transfer to Arusha Airport, then fly to Zanzibar.</p>
+        <div class="schedule-table">
+          <div><b>Pickup</b><span>About 07:30 · Ngorongoro Rim Lodge reception</span></div>
+          <div><b>Arusha arrival</b><span>About 11:30 · Arusha Coffee Lodge</span></div>
+          <div><b>Depart for airport</b><span>13:00</span></div>
+          <div><b>Flight</b><span>14:30 Arusha → 15:30 Zanzibar · As Salaam Air</span></div>
+          <div><b>Zanzibar transfer</b><span>Airport to Neptune Pwani Beach Resort & Spa</span></div>
+          <div><b>Meals</b><span>Breakfast, lunch and dinner</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> aerial landscapes if allowed, resort arrival, palms and first beach light. Change default from safari Bank A to Zanzibar Bank C.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-08-03">
-      <div class="day-date">Aug 3</div><div><h3>Stone Town tour</h3>
-      <p>09:00 pickup for a half-day Stone Town tour.</p>
-      <div class="photo-plan"><b>Photo priority:</b> doors, alleys, market details, architecture, people with permission and layered street scenes.<br><b>Use:</b> Bank B for people; Bank C for architecture. 70–180 mm is ideal for details and discreet compositions.</div></div>
+      <div class="day-date">Aug 3</div>
+      <div>
+        <h3>Stone Town Half-Day Tour</h3>
+        <div class="itinerary-meta">
+          <span>📍 Stone Town</span><span>🏨 Neptune Pwani Beach Resort & Spa</span><span>🍳 B</span><span>🥗 L</span><span>🍽 D</span>
+        </div>
+        <p>Pickup by Island Express for a half-day Stone Town tour. Explore bazaars, markets, mosques, temples and historic streets.</p>
+        <div class="schedule-table">
+          <div><b>Pickup</b><span>09:00 from hotel</span></div>
+          <div><b>Tour</b><span>Half-day Stone Town tour</span></div>
+          <div><b>Afternoon</b><span>At leisure</span></div>
+          <div><b>Meals</b><span>Breakfast, lunch and dinner</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> doors, alleys, market details, architecture, people with permission and layered street scenes. Bank B for people; Bank C for architecture. Use 70–180 mm for details and discreet compositions.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-08-04">
-      <div class="day-date">Aug 4</div><div><h3>Zanzibar leisure day</h3>
-      <p>Beach, watersports, walking and resort time.</p>
-      <div class="photo-plan"><b>Photo priority:</b> turquoise water, dhows, family portraits, seabirds, waves and sunset.<br><b>Use:</b> C for beach scenes, A for boats/birds, B for portraits and D for creative water motion.</div></div>
+      <div class="day-date">Aug 4</div>
+      <div>
+        <h3>Zanzibar Leisure Day</h3>
+        <div class="itinerary-meta">
+          <span>📍 Zanzibar</span><span>🏨 Neptune Pwani Beach Resort & Spa</span><span>🍳 B</span><span>🥗 L</span><span>🍽 D</span>
+        </div>
+        <p>Day at leisure for the beach, watersports, walking or spa time.</p>
+        <div class="schedule-table">
+          <div><b>Morning</b><span>Beach or optional activity</span></div>
+          <div><b>Afternoon</b><span>Leisure / resort</span></div>
+          <div><b>Optional tours</b><span>Prison Island, dhow, snorkeling, dolphin cruise, diving, spice tour, Jozani Forest</span></div>
+          <div><b>Meals</b><span>Breakfast, lunch and dinner</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> turquoise water, dhows, family portraits, seabirds, waves and sunset. C for beaches, A for boats and birds, B for portraits, D for creative motion.</div>
+      </div>
     </article>
+
     <article class="trip-day" data-date="2026-08-05">
-      <div class="day-date">Aug 5</div><div><h3>Zanzibar departure</h3>
-      <p>Check out before noon; evening flight ZNZ → KGL.</p>
-      <div class="photo-plan"><b>Photo priority:</b> final sunrise, resort details and family departure story.<br><b>Reminder:</b> clean salt and sand from gear before packing.</div></div>
+      <div class="day-date">Aug 5</div>
+      <div>
+        <h3>Zanzibar Departure</h3>
+        <div class="itinerary-meta">
+          <span>📍 Zanzibar → Kigali</span><span>🍳 Breakfast included</span><span>✈ Evening departure</span>
+        </div>
+        <p>Breakfast at hotel, check out before noon, transfer to Zanzibar Airport, then begin return flights.</p>
+        <div class="schedule-table">
+          <div><b>Room checkout</b><span>Before 12:00</span></div>
+          <div><b>Hotel facilities after checkout</b><span>Day-use room may be required</span></div>
+          <div><b>Airport transfer</b><span>Hotel to Zanzibar Airport</span></div>
+          <div><b>Flight</b><span>18:40 ZNZ → 20:10 KGL</span></div>
+          <div><b>Next flight</b><span>23:20 KGL → 06:10 (+1) DOH</span></div>
+          <div><b>Meals</b><span>Breakfast</span></div>
+        </div>
+        <div class="photo-plan"><b>Photography:</b> final sunrise, resort details and family departure story. Clean salt and sand from all gear before packing.</div>
+      </div>
     </article>
+
+    <article class="trip-day" data-date="2026-08-06">
+      <div class="day-date">Aug 6</div>
+      <div>
+        <h3>Doha → Los Angeles</h3>
+        <div class="itinerary-meta">
+          <span>📍 Doha → Los Angeles</span><span>✈ Qatar Airways</span>
+        </div>
+        <div class="schedule-table">
+          <div><b>Depart</b><span>08:00 from Doha</span></div>
+          <div><b>Arrive</b><span>14:00 at LAX</span></div>
+          <div><b>Flight time</b><span>16 hours</span></div>
+          <div><b>Transit</b><span>About 1h 50m in Doha</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+
+<section id="hotels" class="section searchable">
+  <div class="head"><div class="eyebrow">Hotels and lodges</div><h2>Your accommodations</h2></div>
+  <div class="hotel-grid">
+    <article class="hotel-card">
+      <h3>Gran Meliá Arusha</h3>
+      <p><b>Stay:</b> Jul 25–27 · Deluxe City View Room</p>
+      <p><b>Location:</b> Simeon Road, Arusha</p>
+      <p><b>Phone:</b> +255-746-980-400</p>
+      <p><b>Included:</b> Jul 25 dinner; Jul 26 breakfast, lunch and dinner; Jul 27 breakfast before departure.</p>
+      <p><b>Amenities:</b> landscaped coffee and tea plantations, restaurants, outdoor pool, spa, gym, bar, lounge and Wi-Fi.</p>
+      <div class="hotel-photo-tip"><b>Photo opportunities:</b> Mount Meru, gardens, coffee/tea plantation details, sunrise family portraits.</div>
+    </article>
+
+    <article class="hotel-card">
+      <h3>Tarangire Sopa Lodge</h3>
+      <p><b>Stay:</b> Jul 27–28 · Standard Room</p>
+      <p><b>Location:</b> Tarangire National Park</p>
+      <p><b>Phone:</b> +255-699-789-737</p>
+      <p><b>Included:</b> Jul 27 lunch and dinner; Jul 28 breakfast and picnic lunch for transfer.</p>
+      <p><b>Amenities:</b> rooms with private lounge, minibar, ceiling fan, balcony, lounge Wi-Fi and outdoor patio.</p>
+      <div class="hotel-photo-tip"><b>Photo opportunities:</b> elephants near lodge, baobabs, balcony wildlife, sunset over the park.</div>
+    </article>
+
+    <article class="hotel-card">
+      <h3>TNS Kimarishe Serengeti Lodge</h3>
+      <p><b>Stay:</b> Jul 28–31 · Standard Room</p>
+      <p><b>Location:</b> Serengeti National Park</p>
+      <p><b>Phone:</b> +255-699-161-440</p>
+      <p><b>Included:</b> Breakfast, lunch and dinner during Serengeti stay.</p>
+      <p><b>Amenities:</b> eco-friendly solar power, restaurant, bar, lounge deck, pool and panoramic Serengeti views.</p>
+      <div class="hotel-photo-tip"><b>Photo opportunities:</b> sunrise and sunset plains, lodge deck silhouettes, wide environmental wildlife.</div>
+    </article>
+
+    <article class="hotel-card">
+      <h3>TNS Ngorongoro Rim Lodge</h3>
+      <p><b>Stay:</b> Jul 31–Aug 2 · Standard Room</p>
+      <p><b>Location:</b> Eastern crater rim</p>
+      <p><b>Phone:</b> +255-741-854-573</p>
+      <p><b>Included:</b> Breakfast, lunch and dinner, including crater-day private lunch.</p>
+      <p><b>Amenities:</b> crater-facing rooms, restaurant, bar, viewing deck, Wi-Fi, ceiling fan, safe, mosquito net and balcony.</p>
+      <div class="hotel-photo-tip"><b>Photo opportunities:</b> crater rim, mist, sunrise, layered landscape and family portraits with crater backdrop.</div>
+    </article>
+
+    <article class="hotel-card">
+      <h3>Neptune Pwani Beach Resort & Spa</h3>
+      <p><b>Stay:</b> Aug 2–5 · Deluxe Beach Side Room</p>
+      <p><b>Location:</b> Kiwengwa, Zanzibar</p>
+      <p><b>Phone:</b> +255-744-567-893/894/895</p>
+      <p><b>Included:</b> Aug 2 dinner; Aug 3–4 breakfast, lunch and dinner; Aug 5 breakfast. Local alcoholic drinks included with some exceptions.</p>
+      <p><b>Amenities:</b> restaurants, bars, coconut beach bar, spa, boutique, water-sports center and Wi-Fi.</p>
+      <div class="hotel-photo-tip"><b>Photo opportunities:</b> dhows, palms, beach sunrise, family portraits, water sports, blue hour and long-exposure waves.</div>
+    </article>
+  </div>
+</section>
+
+
+<section id="meals" class="section searchable">
+  <div class="head"><div class="eyebrow">Meals included</div><h2>Daily meal plan</h2></div>
+  <div class="meal-table">
+    <div class="meal-row meal-head"><span>Date</span><span>Breakfast</span><span>Lunch</span><span>Dinner</span><span>Notes</span></div>
+    <div class="meal-row"><span>Jul 25</span><span>—</span><span>—</span><span>✓</span><span>Drinks and gratuities extra</span></div>
+    <div class="meal-row"><span>Jul 26</span><span>✓</span><span>✓</span><span>✓</span><span>At Gran Meliá Arusha</span></div>
+    <div class="meal-row"><span>Jul 27</span><span>✓</span><span>✓</span><span>✓</span><span>Tarangire Sopa Lodge</span></div>
+    <div class="meal-row"><span>Jul 28</span><span>✓</span><span>Picnic</span><span>✓</span><span>Transfer to Serengeti</span></div>
+    <div class="meal-row"><span>Jul 29</span><span>✓</span><span>✓</span><span>✓</span><span>Serengeti</span></div>
+    <div class="meal-row"><span>Jul 30</span><span>✓</span><span>✓</span><span>✓</span><span>Serengeti</span></div>
+    <div class="meal-row"><span>Jul 31</span><span>✓</span><span>Picnic</span><span>✓</span><span>Transfer to Ngorongoro</span></div>
+    <div class="meal-row"><span>Aug 1</span><span>✓</span><span>Private lunch</span><span>✓</span><span>Inside crater</span></div>
+    <div class="meal-row"><span>Aug 2</span><span>✓</span><span>✓</span><span>✓</span><span>Lunch in Arusha; dinner Zanzibar</span></div>
+    <div class="meal-row"><span>Aug 3</span><span>✓</span><span>✓</span><span>✓</span><span>Neptune Pwani</span></div>
+    <div class="meal-row"><span>Aug 4</span><span>✓</span><span>✓</span><span>✓</span><span>Neptune Pwani</span></div>
+    <div class="meal-row"><span>Aug 5</span><span>✓</span><span>—</span><span>—</span><span>Departure day</span></div>
+  </div>
+</section>
+
+
+<section id="familyphotos" class="section searchable">
+  <div class="head"><div class="eyebrow">Family photo planner</div><h2>Best family portrait moments</h2></div>
+  <div class="family-grid">
+    <div class="family-card"><h3>Gran Meliá Arusha</h3><p>Sunrise or late afternoon in landscaped gardens. Use 70–180 mm around 85–120 mm, f/4–f/5.6, 1/500, People detection.</p></div>
+    <div class="family-card"><h3>Tarangire</h3><p>Family with baobab in background. Use 180–300 mm from a safe distance, Bank C, f/8, 1/800.</p></div>
+    <div class="family-card"><h3>Serengeti</h3><p>Vehicle-side family portrait with endless plains. Use 70–180 mm, backlight at golden hour, protect highlights.</p></div>
+    <div class="family-card"><h3>Ngorongoro Rim</h3><p>Crater backdrop at sunrise or after mist lifts. Use Bank C, f/8, 1/500, tripod or stable support if needed.</p></div>
+    <div class="family-card"><h3>Stone Town</h3><p>Use colorful doorway or textured wall. 70–180 mm, f/4, 1/500, People detection, ask before photographing others nearby.</p></div>
+    <div class="family-card"><h3>Zanzibar Beach</h3><p>Sunrise family walk or dhow silhouette. Bank B for portraits, Bank C for environmental frames. Remove CPL in low light.</p></div>
   </div>
 </section>
 
@@ -717,7 +996,7 @@
 <a class="resource" href="https://www.youtube.com/results?search_query=Frans+Lanting+wildlife+storytelling" target="_blank"><strong>▶ Frans Lanting</strong><span class="muted">Behavior, habitat and visual storytelling.</span></a>
 </div>
 </section>
-<footer class="app-footer">Z8 Tanzania Field Companion · Version 6.0 · Updated July 2026</footer></main>
+<footer class="app-footer">Z8 Tanzania Field Companion · Version 8.1 · iPhone Cache Fix</footer></main>
 
 <nav class="bottom-nav" aria-label="Primary">
   <a href="#dashboard"><span>⌂</span><small>Home</small></a>

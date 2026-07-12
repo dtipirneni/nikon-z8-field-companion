@@ -534,3 +534,7 @@ input[type="checkbox"],input[type="radio"]{width:auto;min-width:18px;height:18px
 .sighting-notes,.sighting-images{margin-top:14px}.sighting-form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 @media(max-width:900px){.journal-summary-grid{grid-template-columns:1fr 1fr}.journal-controls,.sighting-form-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){#journal,#addsighting,#guide,#ethics,#credits{scroll-margin-top:74px}.journal-summary-grid,.journal-controls,.sighting-form-grid{grid-template-columns:1fr}.journal-card-head{flex-direction:column}.journal-card-images,.sighting-image-preview{grid-template-columns:repeat(2,1fr)}}
+
+/* Version 23.2 — elusive species collection */
+.elusive-species{border-color:#7a6336}
+.elusive-species .species-image{background:linear-gradient(145deg,#2d2518,#101511)}

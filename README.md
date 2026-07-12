@@ -1,14 +1,19 @@
-# Tanzania Companion Version 23.1 — Restored Species + Field Journal
+# Tanzania Companion Version 23.2 — Elusive Species Collection
 
-This release fixes a packaging bug in Version 23.0 that preserved only the first species card.
+Adds 11 rare or exceptional Tanzania sightings:
 
-Version 23.1 includes:
-- all 19 original species cards;
-- the complete interactive safari journal;
-- aligned submenu and section order:
-  1. Journal
-  2. Add sighting
-  3. Species guide
-  4. Ethics
-  5. Images
-- a new cache version so the corrected page replaces stale offline content.
+- Serval
+- Caracal
+- African wildcat
+- Bat-eared fox
+- Aardwolf
+- Honey badger
+- Striped hyena
+- African civet
+- Crested porcupine
+- Common genet
+- Zorilla
+
+The Species Guide now contains 30 species and includes an `Elusive` filter.
+
+This release keeps original offline-safe icons. See `IMAGE-LICENSES.md` before adding free web photographs.

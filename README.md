@@ -1,4 +1,4 @@
-# Nikon Z8 Field Companion — Version 15 Update
+# Tanzania Companion
 
 This update adds:
 
@@ -28,3 +28,8 @@ The updater does not delete existing localStorage keys. Existing checklist, priv
 ## Version 16
 
 Fixes countdown and local persistence initialization, adds consistent in-page navigation on every page, adds a persistent Tanzania shopping checklist to More, and corrects multi-page offline caching.
+
+
+## Version 18
+
+Renames the PWA to Tanzania Companion, adds verified Leopard Tours and Shazmin Giga contact cards with one-tap WhatsApp/call/email actions, preserves the Tanzania shopping checklist, makes iPhone submenus static and scrollable, collapses all details by default, hardens local persistence, and refreshes the offline cache.

@@ -26,6 +26,32 @@
       "duration": "5h 15m"
     },
     {
+      "date": "2026-08-02",
+      "route": "ARUSHA-ZANZIBAR",
+      "flight_number": "A7401",
+      "airline": "As Salaam Air",
+      "check_in": "13:30",
+      "departure": "14:30",
+      "arrival": "15:30",
+      "duration": "1h 00m",
+      "departure_airport": "Arusha Airport",
+      "departure_codes": [
+        "ARK",
+        "ARS"
+      ],
+      "arrival_airport": "Zanzibar",
+      "arrival_code": "ZNZ",
+      "fare_per_adult_usd": 230,
+      "fare_total_usd": 920,
+      "booked_by": "Leopard Tours",
+      "baggage_rule": {
+        "total_per_person": "15 kg / 33 lb including hand luggage",
+        "bag_type": "Soft-sided bag or duffel",
+        "max_dimensions": "24 x 17 x 7 inches",
+        "source_priority": "Lion World Travel itinerary"
+      }
+    },
+    {
       "date": "2026-08-05",
       "route": "ZNZ-KGL",
       "flight": "QR6428",

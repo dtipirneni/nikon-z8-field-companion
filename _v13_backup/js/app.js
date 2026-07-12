@@ -1,13 +1,11 @@
-function readLocalJSON(key,fallback){try{const raw=localStorage.getItem(key);return raw?JSON.parse(raw):fallback}catch(error){console.warn('Unable to read local data',key,error);return fallback}}
-function writeLocalJSON(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true}catch(error){console.error('Unable to save local data',key,error);return false}}
 const storeKey='z8-pwa-checks-v6';
-const saved=readLocalJSON(storeKey,{});
+const saved=JSON.parse(localStorage.getItem(storeKey)||'{}');
 document.querySelectorAll('input[type=checkbox][data-task]').forEach((cb,i)=>{const k=cb.dataset.task+'-'+i;cb.checked=!!saved[k];cb.addEventListener('change',()=>{saved[k]=cb.checked;localStorage.setItem(storeKey,JSON.stringify(saved));updateProgress()})});
-function updateProgress(){['global'].forEach(group=>{const boxes=[...document.querySelectorAll(`[data-task="${group}"]`)];const bar=document.getElementById(group+'Bar');const text=document.getElementById(group+'Text');if(!bar||!text)return;const done=boxes.filter(x=>x.checked).length;bar.style.width=(boxes.length?done/boxes.length*100:0)+'%';text.textContent=`${done} of ${boxes.length} completed`})}
+function updateProgress(){['global'].forEach(group=>{const boxes=[...document.querySelectorAll(`[data-task="${group}"]`)];const done=boxes.filter(x=>x.checked).length;document.getElementById(group+'Bar').style.width=(boxes.length?done/boxes.length*100:0)+'%';document.getElementById(group+'Text').textContent=`${done} of ${boxes.length} completed`})}
 updateProgress();
 document.querySelectorAll('.banktab').forEach(t=>t.querySelectorAll('button').forEach(b=>b.onclick=()=>{t.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');const section=t.parentElement;section.querySelectorAll('.bankpanel').forEach(p=>p.classList.remove('active'));document.getElementById(b.dataset.target).classList.add('active')}));
-const search=document.getElementById('search');if(search)search.oninput=()=>{const q=search.value.toLowerCase();document.querySelectorAll('.step:not(.header),.card,.resource,details').forEach(e=>e.classList.toggle('hide',q&&!e.innerText.toLowerCase().includes(q)))};
-let deferredPrompt;const ib=document.getElementById('installBtn');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;if(ib)ib.classList.remove('hide')});if(ib)ib.onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;ib.classList.add('hide')}};
+const search=document.getElementById('search');search.oninput=()=>{const q=search.value.toLowerCase();document.querySelectorAll('.step:not(.header),.card,.resource,details').forEach(e=>e.classList.toggle('hide',q&&!e.innerText.toLowerCase().includes(q)))};
+let deferredPrompt;const ib=document.getElementById('installBtn');window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;ib.classList.remove('hide')});ib.onclick=async()=>{if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;ib.classList.add('hide')}};
 if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
 
 // Version 8: trip countdown and current-day highlighting
@@ -61,7 +59,7 @@ if(recommendBtn){
 
 // Version 8: trip checklist persistence
 const tripCheckKey='z8-trip-check-v8';
-const tripSaved=readLocalJSON(tripCheckKey,{});
+const tripSaved=JSON.parse(localStorage.getItem(tripCheckKey)||'{}');
 document.querySelectorAll('[data-tripcheck]').forEach(cb=>{
   cb.checked=!!tripSaved[cb.dataset.tripcheck];
   cb.addEventListener('change',()=>{
@@ -83,7 +81,7 @@ if ('serviceWorker' in navigator) {
 
 // Version 9: tipping-envelope checklist
 const tipCheckKey='z8-tip-check-v9';
-const tipSaved=readLocalJSON(tipCheckKey,{});
+const tipSaved=JSON.parse(localStorage.getItem(tipCheckKey)||'{}');
 document.querySelectorAll('[data-tipcheck]').forEach(cb=>{
   cb.checked=!!tipSaved[cb.dataset.tipcheck];
   cb.addEventListener('change',()=>{
@@ -219,7 +217,7 @@ if(document.getElementById('weatherLocation') && navigator.onLine) loadWeather()
 
 // Version 10: Zanzibar activity checklist.
 const zActivityKey='z8-zanzibar-activities-v10';
-const zActivitySaved=readLocalJSON(zActivityKey,{});
+const zActivitySaved=JSON.parse(localStorage.getItem(zActivityKey)||'{}');
 document.querySelectorAll('[data-zactivity]').forEach(cb=>{
   cb.checked=!!zActivitySaved[cb.dataset.zactivity];
   cb.addEventListener('change',()=>{
@@ -231,7 +229,7 @@ document.querySelectorAll('[data-zactivity]').forEach(cb=>{
 
 // Version 11: local-only private fields and contact actions.
 const privateStoreKey='z8-private-fields-v11';
-const privateStore=readLocalJSON(privateStoreKey,{});
+const privateStore=JSON.parse(localStorage.getItem(privateStoreKey)||'{}');
 
 function savePrivate(){
   localStorage.setItem(privateStoreKey, JSON.stringify(privateStore));
@@ -280,7 +278,7 @@ document.querySelectorAll('[data-action-whatsapp]').forEach(btn=>{
 
 // Version 11: custom to-do list.
 const todoKey='z8-custom-todos-v11';
-let todos=readLocalJSON(todoKey,[]);
+let todos=JSON.parse(localStorage.getItem(todoKey)||'[]');
 let todoFilter='all';
 
 function saveTodos(){

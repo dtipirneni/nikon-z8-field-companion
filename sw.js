@@ -1,5 +1,38 @@
-const CACHE = 'z8-tanzania-v15';
-const CORE = ['./','./index.html','./trip.html','./shoot.html','./wildlife.html','./more.html','./css/styles.css','./v15.css','./js/preflight.js','./js/app.js','./js/v15-enhancements.js','./manifest.webmanifest','./icon.svg','./assets/exposure-triangle-purple.png','./assets/photography-cheat-sheet.jpeg','./assets/exposure-triangle-green.png','./assets/tipping-sheet.png','./assets/as-salaam-flight-confirmation.png','./documents/zanzibar-insurance.pdf'];
-self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)));self.skipWaiting();});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim();});
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const nav=e.request.mode==='navigate';if(nav){e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r;}).catch(async()=>await caches.match(e.request)||await caches.match('./index.html')));return;}e.respondWith(caches.match(e.request).then(cached=>{const network=fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r;}).catch(()=>cached);return cached||network;}));});
+const CACHE = 'z8-tanzania-v16';
+const CORE = [
+  './','./index.html','./trip.html','./shoot.html','./wildlife.html','./more.html',
+  './css/styles.css','./v16.css','./js/app.js','./js/v16-enhancements.js',
+  './manifest.webmanifest','./icon.svg',
+  './assets/exposure-triangle-purple.png','./assets/photography-cheat-sheet.jpeg',
+  './assets/exposure-triangle-green.png','./assets/tipping-sheet.png',
+  './assets/as-salaam-flight-confirmation.png','./documents/zanzibar-insurance.pdf'
+];
+self.addEventListener('install', event => {
+  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)));
+  self.skipWaiting();
+});
+self.addEventListener('activate', event => {
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))));
+  self.clients.claim();
+});
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).then(response => {
+        if (response && response.ok) caches.open(CACHE).then(cache => cache.put(event.request, response.clone()));
+        return response;
+      }).catch(async () => (await caches.match(event.request)) || (await caches.match('./index.html')))
+    );
+    return;
+  }
+  event.respondWith(
+    caches.match(event.request).then(cached => {
+      const network = fetch(event.request).then(response => {
+        if (response && response.ok) caches.open(CACHE).then(cache => cache.put(event.request, response.clone()));
+        return response;
+      }).catch(() => cached);
+      return cached || network;
+    })
+  );
+});

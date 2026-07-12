@@ -23,3 +23,8 @@ python3 apply-v15.py /path/to/nikon-z8-field-companion
 ```
 
 The updater does not delete existing localStorage keys. Existing checklist, private-field and to-do data remain intact for the same site origin.
+
+
+## Version 16
+
+Fixes countdown and local persistence initialization, adds consistent in-page navigation on every page, adds a persistent Tanzania shopping checklist to More, and corrects multi-page offline caching.

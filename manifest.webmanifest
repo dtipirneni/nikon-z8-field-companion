@@ -1,11 +1,11 @@
 {
-  "name": "Nikon Z8 Tanzania Safari & Zanzibar Field Companion",
+  "name": "Z8 Tanzania Field Companion",
   "short_name": "Z8 Tanzania",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#0c100d",
   "theme_color": "#11150f",
-  "description": "Nikon Z8 factory setup and field guide for Serengeti safari and Zanzibar travel photography.",
+  "description": "Nikon Z8 safari, Zanzibar and trip companion for the Rajendra family Tanzania journey.",
   "icons": [
     {
       "src": "icon.svg",

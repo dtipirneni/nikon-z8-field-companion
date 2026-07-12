@@ -1,4 +1,4 @@
-const CACHE = 'z8-tanzania-v9-4';
+const CACHE = 'z8-tanzania-v11';
 const CORE = [
   './',
   './index.html',
@@ -10,7 +10,8 @@ const CORE = [
   './assets/photography-cheat-sheet.jpeg',
   './assets/exposure-triangle-green.png',
   './assets/tipping-sheet.png',
-  './assets/as-salaam-flight-confirmation.png'
+  './assets/as-salaam-flight-confirmation.png',
+  './documents/zanzibar-insurance.pdf'
 ];
 
 self.addEventListener('install', event => {

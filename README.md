@@ -1,4 +1,4 @@
-# Z8 Tanzania Modular Trip Companion — Version 9
+# Z8 Personal Safari Companion — Version 11
 
 A mobile-friendly Progressive Web App for Nikon Z8 setup, Serengeti wildlife photography, and Zanzibar travel photography.
 
@@ -42,3 +42,13 @@ Adds the complete land itinerary, full international flights, hotels, room types
 ## Version 9
 
 Adds corrected return flights, modular JSON trip data, tipping recommendations and envelope tracking.
+
+
+## Version 10
+
+Adds live Open-Meteo weather with offline caching, photography advice, and a Zanzibar activities planner with the supplied YouTube video embedded.
+
+
+## Version 11
+
+Adds a local travel-protection wallet, embedded Zanzibar insurance certificate, safari guide profile, Shaazmin and Leopard Tours contact cards, and custom persistent to-dos.

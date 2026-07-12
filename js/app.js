@@ -221,7 +221,10 @@
       const daily = document.getElementById("weatherDaily");
       const advice = document.getElementById("photoWeatherAdvice");
       current.innerHTML = `<h3>${data.name}</h3><p><strong>${Math.round(data.current.temperature_2m)}°C</strong> · Wind ${Math.round(data.current.wind_speed_10m)} km/h</p>`;
-      daily.innerHTML = data.daily.time.slice(0,7).map((date,i)=>`<div class="weather-card"><b>${date}</b><div>${Math.round(data.daily.temperature_2m_max[i])}° / ${Math.round(data.daily.temperature_2m_min[i])}°</div><small>Rain ${data.daily.precipitation_probability_max[i] ?? 0}%</small></div>`).join("");
+      daily.innerHTML = data.daily.time.slice(0,7).map((date,i)=>{
+        const label = new Date(date + "T12:00:00").toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"});
+        return `<div class="weather-card"><b>${label}</b><div>${Math.round(data.daily.temperature_2m_max[i])}° / ${Math.round(data.daily.temperature_2m_min[i])}°</div><small>Rain ${data.daily.precipitation_probability_max[i] ?? 0}%</small></div>`;
+      }).join("");
       advice.textContent = (data.current.wind_speed_10m > 25 ? "Windy: raise shutter speed and stabilize long lenses. " : "") + "Protect highlights, keep Auto ISO available, and refresh closer to each travel day.";
     };
     const cached = safeGet("weather-cache", null);

@@ -169,3 +169,114 @@ input[type="checkbox"],input[type="radio"]{width:auto;min-width:18px;height:18px
   .control-diagram{padding:12px}
   .control-diagram svg{max-height:240px}
 }
+
+
+/* Version 20.3 — weather layout polish */
+#weather{
+  scroll-margin-top:135px;
+}
+
+#weather .head{
+  padding-top:4px;
+}
+
+.weather-controls{
+  display:grid;
+  grid-template-columns:minmax(260px,1fr) auto auto;
+  gap:14px;
+  align-items:end;
+  padding:16px;
+}
+
+.weather-controls .primary-btn{
+  width:auto;
+  min-width:220px;
+  justify-self:start;
+}
+
+.weather-status{
+  align-self:center;
+  white-space:nowrap;
+  padding:0 4px 2px;
+}
+
+.weather-current{
+  min-height:0;
+  padding:20px;
+}
+
+.weather-current h3,
+.weather-current p{
+  margin:.35rem 0;
+}
+
+.weather-current-card{
+  min-height:0;
+}
+
+.weather-daily{
+  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+  gap:12px;
+}
+
+.weather-card,
+.weather-day{
+  padding:14px 12px;
+  min-height:120px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.weather-card b,
+.weather-day strong{
+  display:block;
+  margin-bottom:6px;
+}
+
+.weather-advice{
+  padding:16px 18px;
+  margin-top:14px;
+  min-height:0;
+}
+
+#weather details{
+  margin-top:14px;
+}
+
+@media(max-width:760px){
+  #weather{
+    scroll-margin-top:76px;
+  }
+
+  .weather-controls{
+    grid-template-columns:1fr;
+    align-items:stretch;
+  }
+
+  .weather-controls .primary-btn{
+    width:100%;
+    min-width:0;
+    justify-self:stretch;
+  }
+
+  .weather-status{
+    text-align:center;
+    padding-top:2px;
+  }
+
+  .weather-daily{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .weather-card,
+  .weather-day{
+    min-height:108px;
+  }
+}
+
+@media(max-width:420px){
+  .weather-daily{
+    grid-template-columns:1fr;
+  }
+}

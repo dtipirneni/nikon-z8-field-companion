@@ -224,6 +224,27 @@
     return "★".repeat(full) + "☆".repeat(5-full);
   };
 
+  const parseLocalTime = value => value ? new Date(value) : null;
+  const shiftMinutes = (date, minutes) => date ? new Date(date.getTime() + minutes * 60000) : null;
+  const formatLocalTime = date => date
+    ? date.toLocaleTimeString([], {hour:"numeric", minute:"2-digit"})
+    : "—";
+
+  const lightWindows = (sunriseValue, sunsetValue) => {
+    const sunriseDate = parseLocalTime(sunriseValue);
+    const sunsetDate = parseLocalTime(sunsetValue);
+    return {
+      morningBlueStart: shiftMinutes(sunriseDate, -30),
+      morningBlueEnd: sunriseDate,
+      morningGoldenStart: sunriseDate,
+      morningGoldenEnd: shiftMinutes(sunriseDate, 60),
+      eveningGoldenStart: shiftMinutes(sunsetDate, -60),
+      eveningGoldenEnd: sunsetDate,
+      eveningBlueStart: sunsetDate,
+      eveningBlueEnd: shiftMinutes(sunsetDate, 30)
+    };
+  };
+
   const autoLocation = () => {
     const d = now.toISOString().slice(0,10);
     if (d >= "2026-08-02") return "zanzibar";
@@ -247,8 +268,11 @@
       const todayRain = data.daily.precipitation_probability_max?.[0] ?? 0;
       const todayCloud = data.daily.cloud_cover_mean?.[0] ?? c.cloud_cover ?? 0;
       const uv = data.daily.uv_index_max?.[0] ?? 0;
-      const sunrise = data.daily.sunrise?.[0]?.split("T")[1] || "—";
-      const sunset = data.daily.sunset?.[0]?.split("T")[1] || "—";
+      const sunriseValue = data.daily.sunrise?.[0] || null;
+      const sunsetValue = data.daily.sunset?.[0] || null;
+      const windows = lightWindows(sunriseValue, sunsetValue);
+      const sunrise = formatLocalTime(parseLocalTime(sunriseValue));
+      const sunset = formatLocalTime(parseLocalTime(sunsetValue));
       const wind = Math.round(c.wind_speed_10m || 0);
       const gust = Math.round(c.wind_gusts_10m || wind);
       const humidity = Math.round(c.relative_humidity_2m || 0);
@@ -295,11 +319,45 @@
         uv > 7 ? "Strong UV: avoid harsh midday light when possible." : "Light should be easier to manage."
       ].join(" ");
 
-      photo.innerHTML = `<h3>📷 Photography</h3>
+      const lens = wind > 28 || gust > 38
+        ? "70–180 mm — easier to stabilize in wind"
+        : todayCloud > 65
+          ? "70–180 mm for portraits; 180–600 mm for distant behavior"
+          : "180–600 mm — primary safari lens";
+      const cpl = uv > 5 && todayCloud < 55 && wind < 30
+        ? "Recommended selectively for glare and skies; remove at dawn, dusk and low light"
+        : "Usually remove it to preserve shutter speed and light";
+      const dustRisk = todayRain > 45
+        ? "Low — recent or expected moisture may suppress dust"
+        : gust > 40
+          ? "High — avoid lens changes and protect openings"
+          : wind > 25
+            ? "Moderate — minimize lens changes"
+            : "Low to moderate";
+      const wildlifeMorningStart = windows.morningGoldenStart;
+      const wildlifeMorningEnd = shiftMinutes(windows.morningGoldenStart, 150);
+      const wildlifeEveningStart = shiftMinutes(windows.eveningGoldenStart, -60);
+      const wildlifeEveningEnd = windows.eveningGoldenEnd;
+
+      photo.innerHTML = `<h3>📷 Photography & light</h3>
         <div class="condition-rating">${starRating(photoScore)}</div>
-        <p><b>Suggested setup:</b> ${photoBank}</p>
+        <div class="light-window-grid">
+          <div><small>🌅 Morning blue hour</small><b>${formatLocalTime(windows.morningBlueStart)}–${formatLocalTime(windows.morningBlueEnd)}</b></div>
+          <div><small>☀️ Morning golden hour</small><b>${formatLocalTime(windows.morningGoldenStart)}–${formatLocalTime(windows.morningGoldenEnd)}</b></div>
+          <div><small>🌇 Evening golden hour</small><b>${formatLocalTime(windows.eveningGoldenStart)}–${formatLocalTime(windows.eveningGoldenEnd)}</b></div>
+          <div><small>🌌 Evening blue hour</small><b>${formatLocalTime(windows.eveningBlueStart)}–${formatLocalTime(windows.eveningBlueEnd)}</b></div>
+        </div>
+        <p><b>Suggested Nikon bank:</b> ${photoBank}</p>
+        <p><b>Lens:</b> ${lens}</p>
+        <p><b>95 mm CPL:</b> ${cpl}</p>
+        <p><b>Dust risk:</b> ${dustRisk}</p>
         <p>${photoAdvice}</p>
         <div class="condition-times"><span>🌅 Sunrise ${sunrise}</span><span>🌇 Sunset ${sunset}</span></div>`;
+
+      const wildlifeWindows = {
+        morning:`${formatLocalTime(wildlifeMorningStart)}–${formatLocalTime(wildlifeMorningEnd)}`,
+        evening:`${formatLocalTime(wildlifeEveningStart)}–${formatLocalTime(wildlifeEveningEnd)}`
+      };
 
       let safariScore = 5;
       if(todayRain > 70) safariScore -= 1.5;
@@ -308,7 +366,7 @@
       const safariLabel = safariScore >= 4.5 ? "Excellent" : safariScore >= 3.5 ? "Very good" : safariScore >= 2.5 ? "Mixed" : "Challenging";
       safari.innerHTML = `<h3>🦁 Safari conditions</h3>
         <div class="condition-rating">${starRating(safariScore)} <span>${safariLabel}</span></div>
-        <p><b>Best window:</b> Early morning and late afternoon.</p>
+        <p><b>Best wildlife-light windows:</b> ${wildlifeWindows.morning} and ${wildlifeWindows.evening}.</p>
         <p>${todayRain > 50 ? "Allow for wet roads and protect camera gear." : "Generally favorable for game drives."} ${c.temperature_2m > 28 ? "Animal activity may be lower around midday." : "Temperatures should support comfortable viewing."}</p>`;
 
       let beachScore = 5;

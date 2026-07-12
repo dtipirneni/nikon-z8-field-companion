@@ -391,3 +391,26 @@ input[type="checkbox"],input[type="radio"]{width:auto;min-width:18px;height:18px
   .weather-metrics{grid-template-columns:1fr 1fr}
   .weather-metrics>div{padding:9px}
 }
+
+
+/* Version 21.1 — golden hour, blue hour and field-planning details */
+.light-window-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  margin:12px 0;
+}
+.light-window-grid>div{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  background:#101511;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:10px;
+}
+.light-window-grid small{color:var(--muted)}
+.light-window-grid b{color:var(--gold);font-size:.95rem}
+@media(max-width:480px){
+  .light-window-grid{grid-template-columns:1fr}
+}

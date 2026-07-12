@@ -1,7 +1,7 @@
 {
   "name": "Tanzania Companion",
   "short_name": "Tanzania",
-  "description": "Offline Tanzania safari, Zanzibar, weather, shopping, insurance and Nikon Z8 photography companion.",
+  "description": "Offline Tanzania safari, Zanzibar, golden-hour weather, shopping, insurance and Nikon Z8 photography companion.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0c100d",

@@ -1,17 +1,9 @@
 {
   "name": "Tanzania Companion",
   "short_name": "Tanzania",
+  "description": "Offline Tanzania safari, Zanzibar, shopping, travel, insurance and Nikon Z8 photography companion.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0c100d",
-  "theme_color": "#11150f",
-  "description": "Offline safari, itinerary, contacts, shopping and photography companion for Tanzania and Zanzibar.",
-  "icons": [
-    {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
-  ]
+  "theme_color": "#0c100d"
 }

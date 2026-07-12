@@ -1,37 +1,50 @@
-const CACHE = 'tanzania-companion-v18';
+const CACHE = "tanzania-companion-v20-1";
 const CORE = [
-  './','./index.html','./trip.html','./shoot.html','./wildlife.html','./more.html',
-  './css/styles.css','./v18.css','./js/app.js','./js/v18-enhancements.js',
-  './manifest.webmanifest','./icon.svg',
-  './assets/exposure-triangle-purple.png','./assets/photography-cheat-sheet.jpeg',
-  './assets/exposure-triangle-green.png','./assets/tipping-sheet.png',
-  './assets/as-salaam-flight-confirmation.png','./documents/zanzibar-insurance.pdf'
+  "./","./index.html","./trip.html","./shoot.html","./wildlife.html","./more.html",
+  "./css/styles.css?v=20.1","./js/app.js?v=20.1","./manifest.webmanifest","./icon.svg"
 ];
-self.addEventListener('install', event => {
+
+self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)));
   self.skipWaiting();
 });
-self.addEventListener('activate', event => {
-  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))));
+
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))
+    )
+  );
   self.clients.claim();
 });
-self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') return;
-  if (event.request.mode === 'navigate') {
+
+self.addEventListener("fetch", event => {
+  if (event.request.method !== "GET") return;
+
+  if (event.request.mode === "navigate") {
     event.respondWith(
-      fetch(event.request).then(response => {
-        if (response && response.ok) caches.open(CACHE).then(cache => cache.put(event.request, response.clone()));
-        return response;
-      }).catch(async () => (await caches.match(event.request)) || (await caches.match('./index.html')))
+      fetch(event.request)
+        .then(response => {
+          const copy = response.clone();
+          caches.open(CACHE).then(cache => cache.put(event.request, copy));
+          return response;
+        })
+        .catch(async () => (await caches.match(event.request)) || caches.match("./index.html"))
     );
     return;
   }
+
   event.respondWith(
     caches.match(event.request).then(cached => {
-      const network = fetch(event.request).then(response => {
-        if (response && response.ok) caches.open(CACHE).then(cache => cache.put(event.request, response.clone()));
-        return response;
-      }).catch(() => cached);
+      const network = fetch(event.request)
+        .then(response => {
+          if (response && response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE).then(cache => cache.put(event.request, copy));
+          }
+          return response;
+        })
+        .catch(() => cached);
       return cached || network;
     })
   );

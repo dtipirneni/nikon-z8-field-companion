@@ -1,35 +1,51 @@
-# Tanzania Companion
+# Tanzania Companion Version 20.1
 
-This update adds:
+Direct upload package. No builders or command files.
 
-- A horizontal on-page navigation menu at the top of every page.
-- A complete Tanzania gemstone and souvenir shopping checklist at the top of the More page.
-- Local persistence for every shopping checkbox.
-- The Version 14 startup guard so countdown and local-storage handlers initialize.
-- Correct multi-page offline caching with a new Version 15 service-worker cache.
+## Navigation cleanup
+- The Wildlife page is now titled **Zanzibar**.
+- Top and bottom navigation now display **Zanzibar**.
+- Every page keeps one curated horizontal submenu.
+- Every submenu follows the exact order of sections on its page.
+- Submenu wording has been cleaned up for readability and relevance.
 
-## Mac installation
+## Page structure
 
-1. Download your GitHub repository as a ZIP and unzip it.
-2. Double-click `apply-v15.command`.
-3. Drag the unzipped project folder into the Terminal window and press Return.
-4. Upload the updated files to the repository's `main` branch.
-5. Open the web app in Safari, refresh it, close and reopen the Home Screen app.
+### Today
+1. Today
+2. Weather
+3. Trip checklist
 
-## Terminal alternative
+### Trip
+1. Trip overview
+2. Hotels
+3. Meals
+4. Family photos
+5. Tipping
 
-```bash
-python3 apply-v15.py /path/to/nikon-z8-field-companion
-```
+### Photography
+1. Photography hub
+2. Shoot Now
+3. Start
+4. Global setup
+5. Photo banks
+6. Video banks
+7. Verify
+8. Controls
+9. Fundamentals
+10. Visual guides
 
-The updater does not delete existing localStorage keys. Existing checklist, private-field and to-do data remain intact for the same site origin.
+### Zanzibar
+1. Things to do
+2. Photography guide
+3. Shopping
 
+### More
+1. Insurance
+2. Documents
+3. To-dos
+4. Contacts
+5. Library
+6. Resources
 
-## Version 16
-
-Fixes countdown and local persistence initialization, adds consistent in-page navigation on every page, adds a persistent Tanzania shopping checklist to More, and corrects multi-page offline caching.
-
-
-## Version 18
-
-Renames the PWA to Tanzania Companion, adds verified Leopard Tours and Shazmin Giga contact cards with one-tap WhatsApp/call/email actions, preserves the Tanzania shopping checklist, makes iPhone submenus static and scrollable, collapses all details by default, hardens local persistence, and refreshes the offline cache.
+Keep the existing `assets/` and `documents/` folders in GitHub.

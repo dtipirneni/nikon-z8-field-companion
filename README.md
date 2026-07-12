@@ -1,21 +1,14 @@
-# Tanzania Companion Version 22 — Species & Behavior
+# Tanzania Companion Version 22.2 — Itinerary-Aware Species Location
 
-This release adds an offline field guide for late-July and early-August travel through Serengeti, Tarangire, Ngorongoro and Zanzibar.
+The custom species form now defaults to **Auto from today’s itinerary**.
 
-## New
-- 19 mammals and birds
-- common and scientific names
-- location and seasonal context
-- behaviors to anticipate
-- action cues before the moment happens
-- close-up storytelling suggestions
-- environmental/habitat composition suggestions
-- location filters
-- persistent seen/photographed checklist
-- responsible wildlife-photography guidance
-- original offline-safe species icons
+Location is inferred from the trip dates:
+- Arusha
+- Tarangire
+- Serengeti
+- Ngorongoro
+- Zanzibar
 
-## Images
-This release intentionally uses original SVG icons instead of unlicensed wildlife photographs. A commercial photo release should include a documented license, source, photographer and attribution record for every photograph.
+A manual location override remains available for sightings made elsewhere or on a different day.
 
-Keep the existing `assets/` and `documents/` folders. Upload this package to the repository root and overwrite matching files.
+Custom species entries still remain stored only on the device.

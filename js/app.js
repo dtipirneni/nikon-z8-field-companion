@@ -447,6 +447,109 @@
     });
   }));
 
+
+  // Custom species sightings.
+  const customSpeciesForm = document.getElementById("customSpeciesForm");
+  const customSpeciesList = document.getElementById("customSpeciesList");
+  const customSpeciesStorageKey = "custom-species-v22-1";
+
+  const itineraryLocationForDate = date => {
+    const key = date.toISOString().slice(0,10);
+    if (key <= "2026-07-24") return "Arusha";
+    if (key === "2026-07-25" || key === "2026-07-26") return "Tarangire";
+    if (key >= "2026-07-27" && key <= "2026-07-30") return "Serengeti";
+    if (key === "2026-07-31" || key === "2026-08-01") return "Ngorongoro";
+    if (key >= "2026-08-02" && key <= "2026-08-06") return "Zanzibar";
+    return "Other";
+  };
+
+  const resolvedCustomSpeciesLocation = () => {
+    const select = document.getElementById("customSpeciesLocation");
+    if (!select) return "Other";
+    return select.value === "auto" ? itineraryLocationForDate(new Date()) : select.value;
+  };
+
+  const updateCustomSpeciesLocationHint = () => {
+    const select = document.getElementById("customSpeciesLocation");
+    const hint = document.getElementById("customSpeciesLocationHint");
+    if (!select || !hint) return;
+    const inferred = itineraryLocationForDate(new Date());
+    hint.textContent = select.value === "auto"
+      ? `Today’s itinerary location: ${inferred}`
+      : `Using manual location: ${select.value}`;
+  };
+
+  const loadCustomSpecies = () => {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(customSpeciesStorageKey) || "[]");
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  };
+
+  const saveCustomSpecies = items => localStorage.setItem(customSpeciesStorageKey, JSON.stringify(items));
+
+  const escapeHtml = value => String(value ?? "")
+    .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+
+  const renderCustomSpecies = () => {
+    if (!customSpeciesList) return;
+    const items = loadCustomSpecies();
+    if (!items.length) {
+      customSpeciesList.innerHTML = '<div class="custom-species-empty">No additional species recorded yet.</div>';
+      return;
+    }
+    customSpeciesList.innerHTML = items.map(item => `
+      <article class="custom-species-card">
+        <div class="custom-species-icon" aria-hidden="true">${item.type === "Bird" ? "🐦" : item.type === "Reptile" ? "🦎" : item.type === "Mammal" ? "🐾" : "🔎"}</div>
+        <div class="custom-species-content">
+          <div class="custom-species-header">
+            <div><h3>${escapeHtml(item.name)}</h3>
+              <div class="species-tags"><span>${escapeHtml(item.type)}</span><span>${escapeHtml(item.location)}</span><span>${escapeHtml(item.status)}</span></div>
+            </div>
+            <button class="custom-species-delete" type="button" data-delete-custom-species="${escapeHtml(item.id)}">Delete</button>
+          </div>
+          ${item.notes ? `<p>${escapeHtml(item.notes)}</p>` : ""}
+          <small class="muted">Added ${new Date(item.createdAt).toLocaleString()}</small>
+        </div>
+      </article>`).join("");
+    customSpeciesList.querySelectorAll("[data-delete-custom-species]").forEach(button => {
+      button.addEventListener("click", () => {
+        saveCustomSpecies(loadCustomSpecies().filter(item => item.id !== button.dataset.deleteCustomSpecies));
+        renderCustomSpecies();
+      });
+    });
+  };
+
+  if (customSpeciesForm) {
+    renderCustomSpecies();
+    updateCustomSpeciesLocationHint();
+    const locationSelect = document.getElementById("customSpeciesLocation");
+    if (locationSelect) locationSelect.addEventListener("change", updateCustomSpeciesLocationHint);
+    customSpeciesForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const name = document.getElementById("customSpeciesName").value.trim();
+      if (!name) return;
+      const items = loadCustomSpecies();
+      items.unshift({
+        id: `${Date.now()}-${Math.random().toString(36).slice(2,8)}`,
+        name,
+        type: document.getElementById("customSpeciesType").value,
+        location: resolvedCustomSpeciesLocation(),
+        status: document.getElementById("customSpeciesStatus").value,
+        notes: document.getElementById("customSpeciesNotes").value.trim(),
+        createdAt: Date.now()
+      });
+      saveCustomSpecies(items);
+      customSpeciesForm.reset();
+      updateCustomSpeciesLocationHint();
+      renderCustomSpecies();
+    });
+  }
+
+
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(console.error));
   }

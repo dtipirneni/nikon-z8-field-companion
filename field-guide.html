@@ -9,11 +9,11 @@
 <link href="manifest.webmanifest" rel="manifest"/>
 <link href="icon.svg" rel="icon" type="image/svg+xml"/>
 <title>Tanzania Companion — Species &amp; Behavior</title>
-<link href="css/styles.css?v=22.0" rel="stylesheet"/>
+<link href="css/styles.css?v=22.2" rel="stylesheet"/>
 </head><body>
 <header class="page-header"><div><div class="eyebrow">Late July–August field guide</div><h1>Species &amp; Behavior</h1><p class="lead">Anticipate the moment, then choose a close portrait or a habitat-rich environmental frame.</p></div></header>
 <nav class="topnav"><a href="index.html">Today</a><a href="trip.html">Trip</a><a href="shoot.html">Photography</a><a class="active" href="field-guide.html">Field Guide</a><a href="zanzibar.html">Zanzibar</a><a href="more.html">More</a><input id="search" placeholder="Search species"/></nav>
-<nav class="page-subnav" aria-label="On this page"><a href="#guide">Guide</a><a href="#ethics">Ethics</a><a href="#credits">Images</a></nav>
+<nav class="page-subnav" aria-label="On this page"><a href="#guide">Guide</a><a href="#customspecies">Add species</a><a href="#ethics">Ethics</a><a href="#credits">Images</a></nav>
 <main>
 <section class="section" id="guide">
 <div class="head"><div class="eyebrow">Northern Tanzania + Zanzibar</div><h2>Seasonal species planner</h2><p class="muted">Filter by location. Sightings and behavior are never guaranteed; rainfall, animal movement and guide access change daily.</p></div>
@@ -314,6 +314,34 @@
 </article>
 </div>
 </section>
+
+<section class="section" id="customspecies">
+<div class="head">
+<div class="eyebrow">Your sightings</div>
+<h2>Add another species</h2>
+<p class="muted">Record any animal or bird not already listed. Entries are saved only on this device and remain available offline.</p>
+</div>
+<form class="custom-species-form" id="customSpeciesForm">
+<label>Species name<input id="customSpeciesName" required maxlength="80" placeholder="Example: Bat-eared fox"/></label>
+<label>Type<select id="customSpeciesType"><option>Mammal</option><option>Bird</option><option>Reptile</option><option>Other</option></select></label>
+<label>Location
+<select id="customSpeciesLocation">
+<option value="auto">Auto from today’s itinerary</option>
+<option value="Arusha">Arusha</option>
+<option value="Tarangire">Tarangire</option>
+<option value="Serengeti">Serengeti</option>
+<option value="Ngorongoro">Ngorongoro</option>
+<option value="Zanzibar">Zanzibar</option>
+<option value="Other">Other</option>
+</select>
+<small class="muted" id="customSpeciesLocationHint">The app will infer today’s location from the trip itinerary.</small>
+</label>
+<label>Status<select id="customSpeciesStatus"><option>Seen</option><option>Photographed</option><option>Seen and photographed</option></select></label>
+<label class="custom-species-notes">Notes<textarea id="customSpeciesNotes" maxlength="500" rows="4" placeholder="Behavior, habitat, time, photo notes or guide comments"></textarea></label>
+<button class="primary-btn" type="submit">Add to field log</button>
+</form>
+<div class="custom-species-list" id="customSpeciesList"></div>
+</section>
 <section class="section" id="ethics">
 <div class="head"><div class="eyebrow">Responsible wildlife photography</div><h2>Behavior first, photograph second</h2></div>
 <div class="grid">
@@ -328,7 +356,7 @@
 <div class="callout"><b>This release uses original offline-safe species icons.</b> They avoid broken links and third-party photo-license risk. A future commercial photo pack should use properly licensed photographs with photographer, source and license attribution stored beside every image.</div>
 </section>
 </main>
-<footer class="app-footer">Tanzania Companion · Version 22.0 · Species &amp; Behavior Field Guide</footer>
+<footer class="app-footer">Tanzania Companion · Version 22.2 · Species &amp; Behavior Field Guide</footer>
 <nav aria-label="Primary" class="bottom-nav">
 <a href="index.html"><span>⌂</span><small>Today</small></a>
 <a href="trip.html"><span>✈️</span><small>Trip</small></a>
@@ -337,5 +365,5 @@
 <a href="zanzibar.html"><span>🌴</span><small>Zanzibar</small></a>
 <a href="more.html"><span>•••</span><small>More</small></a>
 </nav>
-<script defer src="js/app.js?v=22.0"></script>
+<script defer src="js/app.js?v=22.2"></script>
 </body></html>

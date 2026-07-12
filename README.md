@@ -1,71 +1,25 @@
-# Z8 Tanzania Modular Static Companion — Version 13
+# Nikon Z8 Field Companion — Version 15 Update
 
-A mobile-friendly Progressive Web App for Nikon Z8 setup, Serengeti wildlife photography, and Zanzibar travel photography.
+This update adds:
 
-## Publish with GitHub Pages
+- A horizontal on-page navigation menu at the top of every page.
+- A complete Tanzania gemstone and souvenir shopping checklist at the top of the More page.
+- Local persistence for every shopping checkbox.
+- The Version 14 startup guard so countdown and local-storage handlers initialize.
+- Correct multi-page offline caching with a new Version 15 service-worker cache.
 
-1. Upload all files and folders in this repository to the `main` branch.
-2. Open **Settings → Pages**.
-3. Under **Build and deployment**, choose:
-   - Source: **Deploy from a branch**
-   - Branch: **main**
-   - Folder: **/(root)**
-4. Save and wait for GitHub Pages to publish.
+## Mac installation
 
-Your expected URL is:
+1. Download your GitHub repository as a ZIP and unzip it.
+2. Double-click `apply-v15.command`.
+3. Drag the unzipped project folder into the Terminal window and press Return.
+4. Upload the updated files to the repository's `main` branch.
+5. Open the web app in Safari, refresh it, close and reopen the Home Screen app.
 
-`https://dtipirneni.github.io/nikon-z8-field-companion/`
+## Terminal alternative
 
-## Install on iPhone
+```bash
+python3 apply-v15.py /path/to/nikon-z8-field-companion
+```
 
-1. Open the published URL in Safari.
-2. Tap the Share button.
-3. Tap **Add to Home Screen**.
-4. Name it **Z8 Tanzania** and tap **Add**.
-5. Open the app once while connected to the internet so offline assets are cached.
-
-## Updating
-
-Replace changed files, commit them to `main`, and refresh the app. If an old version remains cached, close the app, reopen Safari, refresh the site, and launch the Home Screen app again.
-
-
-## Version 6
-
-Adds the family itinerary, flight schedule, day-by-day photography plan, Shoot Now assistant, trip checklist, countdown, and iPhone bottom navigation.
-
-
-## Version 8
-
-Adds the complete land itinerary, full international flights, hotels, room types, meals, pickup and arrival times, hotel details, photography priorities, and a family photo planner.
-
-
-## Version 9
-
-Adds corrected return flights, modular JSON trip data, tipping recommendations and envelope tracking.
-
-
-## Version 10
-
-Adds live Open-Meteo weather with offline caching, photography advice, and a Zanzibar activities planner with the supplied YouTube video embedded.
-
-
-## Version 11
-
-Adds a local travel-protection wallet, embedded Zanzibar insurance certificate, safari guide profile, Shaazmin and Leopard Tours contact cards, and custom persistent to-dos.
-
-
-## Version 12
-
-Reorders menus to match page layout, moves tipping into the Trip flow before Shoot, groups Photo and Video Banks under Shoot, creates separate Travel Protection, Documents, and To-dos destinations, and removes the What's New panel.
-
-## Version 13
-
-The app is now a static multi-page PWA:
-
-- Today
-- Trip
-- Shoot
-- Wildlife & Zanzibar
-- More
-
-It still requires no backend and runs on GitHub Pages. Open-Meteo weather updates only when online; all other pages and cached documents remain available offline.
+The updater does not delete existing localStorage keys. Existing checklist, private-field and to-do data remain intact for the same site origin.

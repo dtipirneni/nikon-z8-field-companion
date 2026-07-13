@@ -1,7 +1,7 @@
-const CACHE = "tanzania-companion-v30";
+const CACHE = "tanzania-companion-v31";
 const CORE = [
   "./","./index.html","./trip.html","./shoot.html","./camera.html","./field-guide.html","./zanzibar.html","./resources.html","./more.html",
-  "./css/styles.css?v=25.0","./css/v30.css?v=30.0","./js/app.js?v=25.0","./js/v30.js?v=30.0","./data/camera-profile.json","./manifest.webmanifest","./icon.svg","./documents/lion-world-full-itinerary.pdf","./documents/tanzania-zanzibar-visitor-information.pdf",
+  "./css/styles.css?v=31.0","./js/app.js?v=31.0","./data/camera-profile.json","./manifest.webmanifest","./icon.svg","./documents/lion-world-full-itinerary.pdf","./documents/tanzania-zanzibar-visitor-information.pdf",
   "./assets/species/serval.svg","./assets/species/caracal.svg","./assets/species/african-wildcat.svg","./assets/species/bat-eared-fox.svg","./assets/species/aardwolf.svg","./assets/species/honey-badger.svg","./assets/species/striped-hyena.svg","./assets/species/african-civet.svg","./assets/species/crested-porcupine.svg","./assets/species/common-genet.svg","./assets/species/zorilla.svg","./assets/species/lion.svg","./assets/species/elephant.svg","./assets/species/cheetah.svg","./assets/species/leopard.svg","./assets/species/wildebeest.svg","./assets/species/zebra.svg","./assets/species/giraffe.svg","./assets/species/buffalo.svg","./assets/species/hyena.svg","./assets/species/rhino.svg","./assets/species/hippo.svg","./assets/species/roller.svg","./assets/species/secretary.svg","./assets/species/martial.svg","./assets/species/kori.svg","./assets/species/hornbill.svg","./assets/species/flamingo.svg","./assets/species/fish-eagle.svg","./assets/species/red-colobus.svg"
 ];
 self.addEventListener("install",event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)));self.skipWaiting();});

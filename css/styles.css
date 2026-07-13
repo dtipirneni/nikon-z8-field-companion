@@ -538,3 +538,18 @@ input[type="checkbox"],input[type="radio"]{width:auto;min-width:18px;height:18px
 /* Version 23.2 — elusive species collection */
 .elusive-species{border-color:#7a6336}
 .elusive-species .species-image{background:linear-gradient(145deg,#2d2518,#101511)}
+
+/* Version 25 — offline resource center */
+.resource-doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.resource-doc-card{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:17px}
+.resource-doc-icon{display:grid;place-items:center;width:72px;height:72px;border-radius:16px;background:#101511;font-size:2.3rem}
+.resource-doc-card h3{margin:0 0 7px}.resource-doc-card p{margin:.4rem 0 1rem;color:var(--muted)}
+.resource-topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}
+.resource-topic{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:16px;padding:15px}
+.resource-topic>span{font-size:1.8rem}.resource-topic h3{margin:8px 0 6px}.resource-topic p{margin:0;color:var(--muted)}
+.resource-link-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.resource-link-card{display:flex;gap:13px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:14px;color:var(--text)}
+.resource-link-card:hover{border-color:var(--gold);transform:translateY(-1px)}
+.resource-link-card>span{font-size:1.8rem}.resource-link-card b,.resource-link-card small{display:block}.resource-link-card small{color:var(--muted);margin-top:3px}
+.bottom-nav{overflow-x:auto}.bottom-nav a{min-width:58px}
+@media(max-width:620px){.resource-doc-grid{grid-template-columns:1fr}.resource-doc-card{grid-template-columns:1fr}.resource-doc-icon{width:58px;height:58px}.bottom-nav a{min-width:54px}.bottom-nav small{font-size:.56rem}}

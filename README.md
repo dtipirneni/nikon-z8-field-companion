@@ -1,19 +1,14 @@
-# Tanzania Companion Version 23.2 — Elusive Species Collection
+# Tanzania Companion Pro — Version 25
 
-Adds 11 rare or exceptional Tanzania sightings:
+Version 25 adds a dedicated offline Resource Center and bundles:
 
-- Serval
-- Caracal
-- African wildcat
-- Bat-eared fox
-- Aardwolf
-- Honey badger
-- Striped hyena
-- African civet
-- Crested porcupine
-- Common genet
-- Zorilla
+- `documents/lion-world-full-itinerary.pdf`
+- `documents/tanzania-zanzibar-visitor-information.pdf`
 
-The Species Guide now contains 30 species and includes an `Elusive` filter.
+Resources submenu and section order:
+1. Documents
+2. Tanzania guide
+3. Trip references
+4. Photography
 
-This release keeps original offline-safe icons. See `IMAGE-LICENSES.md` before adding free web photographs.
+The itinerary PDF contains personal family and travel information. Keep the repository private or remove/redact the PDF before public release.

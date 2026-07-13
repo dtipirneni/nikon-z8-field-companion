@@ -1,14 +1,14 @@
-# Tanzania Companion Pro — Version 25
+# Tanzania Companion Pro — Version 30
 
-Version 25 adds a dedicated offline Resource Center and bundles:
+Complete upload-ready package built from Version 25.
 
-- `documents/lion-world-full-itinerary.pdf`
-- `documents/tanzania-zanzibar-visitor-information.pdf`
+Version 30 adds:
+- Camera Setup Center
+- Matching Photo and Video Banks A–D
+- Smart bank recommendations
+- Nikon Z8 fast-control guidance
+- i Menu and My Menu recommendations
+- Owned-lens guidance for the NIKKOR Z 70–180mm f/2.8 and 180–600mm f/5.6–6.3 VR
+- Offline caching for all Version 30 files
 
-Resources submenu and section order:
-1. Documents
-2. Tanzania guide
-3. Trip references
-4. Photography
-
-The itinerary PDF contains personal family and travel information. Keep the repository private or remove/redact the PDF before public release.
+The bundled itinerary contains private family and trip details. The repository is public, so remove or redact the itinerary PDF before public or commercial distribution.

@@ -1,0 +1,98 @@
+{
+  "version": "30.0",
+  "camera": "Nikon Z8",
+  "ownedLenses": [
+    "NIKKOR Z 70-180mm f/2.8",
+    "NIKKOR Z 180-600mm f/5.6-6.3 VR"
+  ],
+  "banks": {
+    "A": {
+      "name": "Safari Wildlife",
+      "photo": {
+        "mode": "M + Auto ISO",
+        "shutter": "1/1600 s default; 1/2000-1/2500 for action",
+        "aperture": "Wide open",
+        "af": "AF-C \u00b7 Wide-area AF C1 / 3D override",
+        "detection": "Animals",
+        "release": "Continuous high 15 fps",
+        "iso": "Auto ISO, max 12,800",
+        "lens": "180-600mm"
+      },
+      "video": {
+        "format": "4K 60p",
+        "shutter": "1/125 s",
+        "aperture": "Wide open to f/8",
+        "af": "AF-C \u00b7 Wide-area / Auto-area",
+        "detection": "Animals",
+        "lens": "180-600mm",
+        "use": "General wildlife behavior and moving mammals"
+      }
+    },
+    "B": {
+      "name": "Birds & Action",
+      "photo": {
+        "mode": "M + Auto ISO",
+        "shutter": "1/2500-1/3200 s",
+        "aperture": "Wide open",
+        "af": "AF-C \u00b7 Wide-area AF C1",
+        "detection": "Birds",
+        "release": "Continuous high 20 fps",
+        "iso": "Auto ISO, max 12,800",
+        "lens": "180-600mm"
+      },
+      "video": {
+        "format": "4K 120p when slow motion matters; otherwise 4K 60p",
+        "shutter": "1/250 s at 120p; 1/125 s at 60p",
+        "aperture": "Wide open",
+        "af": "AF-C \u00b7 Wide-area AF C1",
+        "detection": "Birds",
+        "lens": "180-600mm",
+        "use": "Birds in flight, cheetah runs, fights and fast behavior"
+      }
+    },
+    "C": {
+      "name": "Travel / People / Environment",
+      "photo": {
+        "mode": "A or M + Auto ISO",
+        "shutter": "1/500 s people; stable support for landscapes",
+        "aperture": "f/2.8-f/4 portraits; f/8 environmental",
+        "af": "AF-C People or AF-S single point",
+        "detection": "People / Off as needed",
+        "release": "Single or low continuous",
+        "iso": "ISO 64-1600",
+        "lens": "70-180mm"
+      },
+      "video": {
+        "format": "4K 24/30p",
+        "shutter": "1/50 or 1/60 s",
+        "aperture": "f/2.8-f/8",
+        "af": "AF-F / AF-C with smooth transition",
+        "detection": "People",
+        "lens": "70-180mm",
+        "use": "Family, Stone Town, lodges, Zanzibar and environmental stories"
+      }
+    },
+    "D": {
+      "name": "Night Sky / Low Light",
+      "photo": {
+        "mode": "M",
+        "shutter": "Start 4-8 s at 70mm; moon 1/125-1/500 s",
+        "aperture": "f/2.8",
+        "af": "Manual focus using magnified live view",
+        "detection": "Off",
+        "release": "2 s self-timer",
+        "iso": "ISO 3200-6400 start",
+        "lens": "70-180mm; strongest for moon, constellations and compressed night scenes"
+      },
+      "video": {
+        "format": "4K 24p",
+        "shutter": "1/50 s",
+        "aperture": "f/2.8",
+        "af": "Manual focus or slow AF",
+        "detection": "Off / People for camp scenes",
+        "lens": "70-180mm",
+        "use": "Campfire, lodge ambience and low-light scenes; not star-trail video"
+      }
+    }
+  }
+}

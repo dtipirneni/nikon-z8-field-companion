@@ -1,4 +1,4 @@
-const CACHE = "tanzania-companion-v31";
+const CACHE = "tanzania-companion-v31-settings-update";
 const CORE = [
   "./","./index.html","./trip.html","./shoot.html","./camera.html","./field-guide.html","./zanzibar.html","./resources.html","./more.html",
   "./css/styles.css?v=31.0","./js/app.js?v=31.0","./data/camera-profile.json","./manifest.webmanifest","./icon.svg","./documents/lion-world-full-itinerary.pdf","./documents/tanzania-zanzibar-visitor-information.pdf",

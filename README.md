@@ -2,6 +2,10 @@
 
 Complete static PWA package. Version 31 restores and expands the Nikon Z8 setup-from-scratch workflow while preserving Version 30 functionality.
 
+## Personalized camera-settings update
+
+This packaged copy incorporates the finalized Nikon Z8 field setup: paired A–D focus modes, lens choices, metering, RAW compression, focal-length-aware Bank D shutter speeds, H.265 10-bit SDR video, built-in-microphone settings, attenuator guidance, Hi-Res Zoom, g15/g16 zebra settings, and a 512 GB CFexpress primary card with Slot 2 set to Overflow.
+
 ## Camera guide
 The `camera.html` guide is sorted by menu type:
 1. Global / Setup

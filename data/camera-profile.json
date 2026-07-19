@@ -5,6 +5,38 @@
     "NIKKOR Z 70-180mm f/2.8",
     "NIKKOR Z 180-600mm f/5.6-6.3 VR"
   ],
+  "focusControls": {
+    "afActivation": "AF-ON only",
+    "afOn": "AF-ON / back-button focus",
+    "fn1": "AF-area mode + AF-ON: 3D-tracking",
+    "fn2": "Recall shooting functions without hold; momentary per-bank action preset with AF-ON",
+    "fn2FocusModeLimitation": "Recall cannot change Focus mode. Keep A-C in AF-C; change D from MF to AF-C before recalled AF-ON can focus.",
+    "subSelectorCenter": "AF-area mode + AF-ON: Auto-area AF",
+    "lensLFn": "AF-area mode + AF-ON: Wide-area AF C1; all four 180-600mm L-Fn buttons share this assignment"
+  },
+  "storage": {
+    "slot1": "512 GB CFexpress Type B primary",
+    "slot2Role": "Overflow",
+    "warning": "Overflow increases capacity but does not create a duplicate; make a separate daily backup."
+  },
+  "menuSettingsBackup": {
+    "path": "Setup Menu > Save/load menu settings",
+    "save": "Choose Save menu settings after configuring and testing all A-D banks.",
+    "card": "With two cards inserted, the file is written to the card selected under Photo Shooting Menu > Primary slot selection; normally Slot 1 CFexpress for this companion.",
+    "file": "Copy the camera-created NCSET*** file to a computer and never rename it.",
+    "restore": "Put the original unrenamed file at the card's top level, insert the card, then choose Load menu settings and verify all banks and controls.",
+    "limitations": "Same Nikon Z8 model only; custom Picture Controls save as Auto; verify date/time, exposure values, lens-dependent VR and settings excluded by Nikon."
+  },
+  "zebra": {
+    "menu": "Custom Settings Menu > g Video > g15 Zebra pattern; g16 Limit zebra pattern tone range",
+    "toneRange": "Highlights",
+    "pattern": "Pattern 1",
+    "color": "Red",
+    "threshold": 245,
+    "limit": "Allow Highlights",
+    "reason": "Red is easier to see than Gray against tan grass, brown or gray animals, pale fur, clouds, dust, shadows and flat video previews; the overlay is not recorded.",
+    "alternative": "Use Gray if Red is distracting or difficult to distinguish because of color vision."
+  },
   "banks": {
     "A": {
       "name": "Safari Wildlife",
@@ -15,6 +47,7 @@
         "raw": "High Efficiency Star, 14-bit",
         "metering": "Matrix; Highlight-weighted for pale animals in harsh sun",
         "af": "AF-C \u00b7 Wide-area AF C1 / 3D override",
+        "afPriority": "Release",
         "detection": "Animals",
         "release": "Continuous high 15 fps",
         "iso": "Auto ISO, max 12,800",
@@ -42,6 +75,7 @@
         "raw": "High Efficiency Star, 14-bit",
         "metering": "Matrix; Highlight-weighted for white or bright birds",
         "af": "AF-C \u00b7 Wide-area AF C1",
+        "afPriority": "Release",
         "detection": "Birds",
         "release": "Continuous high 20 fps",
         "iso": "Auto ISO, max 12,800",
@@ -69,6 +103,7 @@
         "raw": "Lossless compressed, 14-bit",
         "metering": "Matrix; Highlight-weighted or Spot only when deliberately needed",
         "af": "AF-C People or AF-S single point",
+        "afPriority": "Release when using AF-C",
         "detection": "People / Off as needed",
         "release": "Single or low continuous",
         "iso": "ISO 64-1600",

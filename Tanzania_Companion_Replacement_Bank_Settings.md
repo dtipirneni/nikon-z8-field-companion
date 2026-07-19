@@ -12,7 +12,8 @@ These settings apply across the bank system unless deliberately overridden.
 | Time zone and date | Home now; change to Tanzania during the trip |
 | Copyright information | Enter the owner's preferred copyright name |
 | File naming | Use `RAJ_` or another preferred trip code consistently |
-| Role played by card in Slot 2 | **Overflow** |
+| Extended menu banks | **On**; required so exposure mode, shutter speed, and aperture follow A–D |
+| Secondary slot function | **Overflow** |
 | Monitor brightness | 0 in daylight; reduce at night |
 | Airplane mode | On unless transferring files |
 | Sensor shield at power off | Close when changing lenses |
@@ -20,7 +21,7 @@ These settings apply across the bank system unless deliberately overridden.
 | JPEG color space | sRGB |
 | RAW color space | Selected during export; export sRGB for web and general sharing |
 | Fn1 | AF-area mode + AF-ON: 3D-tracking |
-| Fn2 | **Recall shooting functions** (without “hold”); momentary emergency-action preset configured separately in Custom Banks A–D |
+| Fn2 | A–C: **Recall shooting functions** (without “hold”); D: **Starlight view (photo Lv)** |
 | AF-ON | AF-ON / back-button focus after practicing the workflow |
 
 > The Z8 color-space setting does not restrict RAW data. Use sRGB for JPEGs and ordinary exports. Use Adobe RGB only for a fully color-managed print workflow that specifically requests it.
@@ -31,9 +32,9 @@ With **Slot 2 set to Overflow**, the Z8 records to the primary card until it is 
 
 1. Photograph any existing settings you may want to preserve.
 2. Before resetting, use **SETUP MENU → Save/load menu settings → Save menu settings** to create a restorable card backup of the current setup.
-3. Choose **PHOTO SHOOTING MENU → Reset photo shooting menu → Yes**.
-4. Choose **CUSTOM SETTINGS MENU → Reset custom settings → Yes**.
-5. Switch to video mode and choose **VIDEO RECORDING MENU → Reset video recording menu → Yes**.
+3. Open **PHOTO SHOOTING MENU → Shooting menu bank**, highlight Bank A, press **O (Q)**, and confirm **Yes**. Repeat for B, C, and D. On the Z8, shooting banks are reset individually from the bank-selection screen.
+4. Open **CUSTOM SETTINGS MENU → Custom settings bank**, highlight Bank A, press **O (Q)**, and confirm **Yes**. Repeat for B, C, and D.
+5. Set **PHOTO SHOOTING MENU → Extended menu banks → ON**. This shared setting also enables extended exposure storage for video, while firmware 3.00 retains separate photo and video exposure values.
 6. Build the Global, Photo, Video, and Custom sections in menu order.
 7. Configure the i Menu, My Menu, paired banks, and controls.
 8. Record a test photo and video in every bank and review the results.
@@ -133,8 +134,8 @@ Use the long end for small or distant birds. Zoom back toward 180–300mm for la
 | Setting | Value |
 |---|---|
 | Primary lens | **NIKKOR Z 70–180mm f/2.8** |
-| Exposure mode | Aperture Priority or Manual |
-| Starting shutter for people | **1/500 sec** |
+| Exposure mode | **Aperture Priority** |
+| Auto ISO minimum shutter for people | **1/500 sec**; select Auto/slower temporarily for stationary landscapes |
 | Portrait aperture | **f/2.8–f/4** |
 | Environmental/landscape aperture | **f/8** |
 | ISO | Auto ISO; maximum ISO 6,400 |
@@ -154,6 +155,8 @@ Use the long end for small or distant birds. Zoom back toward 180–300mm for la
 
 Use 70–100mm for groups, environmental portraits, landscapes, and street scenes. Use roughly 135–180mm for tighter portraits and stronger background separation. Switch to the 180–600mm only for distant wildlife or compressed landscape details.
 
+**Coverage warning:** 70mm can still be too tight for Stone Town interiors, larger family groups, narrow streets, lodge rooms, and broad landscapes. If you own a wider lens, carry it for Bank C; otherwise use a phone or shoot a careful panorama. The 70–180mm remains the preferred owned lens for portraits, details, and compressed environmental scenes.
+
 ## D — Night Sky / Low Light
 
 | Setting | Value |
@@ -164,7 +167,7 @@ Use 70–100mm for groups, environmental portraits, landscapes, and street scene
 | ISO | Start at ISO 3200–6400; adjust after checking the histogram |
 | Metering | **Matrix metering** as a starting reference; judge stars with the histogram and test images in Manual exposure |
 | Focus mode for stars | **MF (manual focus)** |
-| AF-area mode | Manual focus; Pinpoint AF may be used temporarily on a bright, stationary subject |
+| AF-area mode | Manual focus; Pinpoint AF may be used temporarily on a bright, stationary subject **only after switching Focus mode to AF-S** |
 | Subject detection for stars | **Off** |
 | RAW recording | **Lossless compressed, 14-bit** |
 | White balance | 3800–4200 K |
@@ -178,7 +181,7 @@ The bank recalls only a starting shutter speed. It does **not** automatically ch
 
 | Focal length | Starting shutter |
 |---:|---:|
-| 70mm | 5–8 sec |
+| 70mm | **5–7 sec; start at 5 sec** |
 | 100mm | 4–5 sec |
 | 135mm | 2–3 sec |
 | 180mm | **1.6–2 sec** |
@@ -195,10 +198,10 @@ The detailed bank sections above govern lens, focus, exposure, and RAW compressi
 
 | Setting | A — Safari | B — Birds | C — Travel | D — Night |
 |---|---|---|---|---|
-| Image quality | RAW | RAW | RAW + JPEG Fine | RAW |
+| Image quality settings → Image quality | RAW | RAW | RAW + JPEG Fine | RAW |
 | RAW recording | High Efficiency★, 14-bit; lossless optional | High Efficiency★, 14-bit; lossless optional | Lossless compressed, 14-bit | Lossless compressed, 14-bit |
-| Exposure mode | M | M | A or M | M |
-| Starting shutter | 1/1600 sec | 1/2500–1/3200 sec | 1/500 sec for people | 5–8 sec at 70mm; 1.6–2 sec at 180mm |
+| Exposure mode | M | M | **A** | M |
+| Starting/minimum shutter | 1/1600 sec | 1/2500–1/3200 sec | Auto ISO minimum 1/500 sec for people | 5–7 sec at 70mm; 1.6–2 sec at 180mm |
 | Aperture | Wide open: f/5.6–6.3 on 180–600mm | Wide open: f/5.6–6.3 on 180–600mm | f/2.8–4 portraits; f/8 environment | f/2.8 |
 | ISO sensitivity | Auto ISO; maximum 12,800 | Auto ISO; maximum 12,800 | Auto ISO; maximum 6,400 | Manual ISO 3200–6400 |
 | Metering | Matrix; Highlight-weighted for pale animals in harsh sun | Matrix; Highlight-weighted for white/bright birds | Matrix; Highlight-weighted or Spot when deliberately needed | Matrix as a reference; verify with histogram/test image |
@@ -206,8 +209,10 @@ The detailed bank sections above govern lens, focus, exposure, and RAW compressi
 | Picture Control | Neutral | Neutral | Standard or Neutral | Neutral |
 | Active D-Lighting | Off | Off | Auto | Off |
 | High ISO noise reduction | Low | Low | Normal | Low or Off |
+| High ISO NR mode | Type A | Type A | Type A | Type A |
 | Long exposure noise reduction | Off | Off | Off | Off for stacking; On optional for one isolated exposure |
 | Photo flicker reduction | Off outdoors | Off outdoors | Auto/On indoors | Off |
+| MF subject detection area | All | All | All | **MF subject detection off** |
 | Vibration reduction | Sport or Normal | Sport | Normal | Off on tripod |
 | Primary lens | 180–600mm f/5.6–6.3 | 180–600mm f/5.6–6.3 | 70–180mm f/2.8 | 70–180mm f/2.8 |
 
@@ -215,13 +220,20 @@ The detailed bank sections above govern lens, focus, exposure, and RAW compressi
 
 | Setting | A — Safari | B — Birds | C — Travel | D — Night |
 |---|---|---|---|---|
+| Shooting mode | M | M | M | M |
 | Frame size / frame rate | 3840×2160 60p | 3840×2160 120p or 60p | 3840×2160 24p or 30p | 3840×2160 24p |
 | Shutter speed | 1/125 at 60p | 1/250 at 120p; 1/125 at 60p | 1/50 at 24p; 1/60 at 30p | 1/50 at 24p |
 | Video file type | H.265 10-bit MOV, SDR | H.265 10-bit MOV, SDR | H.265 10-bit MOV, SDR | H.265 10-bit MOV, SDR |
+| Destination | **CFexpress/XQD card slot** | Same | Same | Same |
 | ISO sensitivity | Auto ISO; maximum 12,800 | Auto ISO; maximum 12,800 | Auto ISO; maximum 6,400 | Manual, or Auto ISO with a carefully chosen maximum |
+| Metering | Matrix | Matrix | Matrix | Matrix |
+| Focus mode | AF-C | AF-C | AF-F for continuous people tracking or AF-C for AF-ON control | MF; AF-C temporarily for moving people |
+| AF-area mode | Wide-area AF (C1) | Wide-area AF (C1) | Auto-area AF | MF; Wide-area AF (S) temporarily with AF |
+| AF/MF subject detection options | Animal | Birds | People | Subject detection off; People temporarily for camp scenes |
+| MF subject detection area | All | All | All | MF subject detection off |
 | White balance | Natural Light Auto | Natural Light Auto | Auto; use fixed WB when clips must match | 3800–4200 K |
 | Microphone sensitivity | Auto for simple built-in-mic operation; manual when monitoring levels | Auto for simple built-in-mic operation; manual for unpredictable calls | Auto, or manual for consistent voices | Manual low ambience or Auto for simplicity |
-| Attenuator | Off normally; On for unusually loud nearby animals or vehicle noise | Off normally; On for loud nearby bird calls | Off normally; On for loud crowds, music, or shouting | Off |
+| Attenuator | Off normally; On only when a genuinely loud source clips despite reduced sensitivity | Same | Off normally; On for very loud crowds, music, or shouting that would otherwise clip | Off |
 | Mic jack plug-in power | Leave On/default; irrelevant while no external microphone is connected | Leave On/default | Leave On/default | Leave On/default |
 | Wind noise reduction | On when windy | On when windy | On outdoors when windy | On only if wind is present |
 | Electronic VR | Off | Off | On only while walking handheld | Off |
@@ -237,6 +249,7 @@ The detailed bank sections above govern lens, focus, exposure, and RAW compressi
 - With no external microphone, the Z8 uses its built-in stereo microphone. The empty mic jack and plug-in-power setting do not affect normal built-in-mic recording.
 - Use a furry windscreen when practical. Electronic wind reduction cannot fully remove strong wind or open-vehicle turbulence.
 - Hi-Res Zoom is disabled by default. With the 180–600mm, use optical zoom instead. In Bank C it may be enabled temporarily for a smooth digital push-in; set **CUSTOM SETTINGS MENU → g Video → g8 Hi-Res Zoom speed** to Slow or Medium.
+- Hi-Res Zoom is compatible with Bank C at 4K 24/30p, but not with the A/B 4K 60/120p setups. While enabled, AF-area mode is fixed at **Wide-area AF (L)** and Electronic VR is forced **Off**; do not expect C’s AF-area cycling or walking e-VR to remain available.
 - A normal full-resolution RAW photograph cannot be captured while actively recording video. Stop recording and switch to photo mode, or extract a JPEG frame later when the recording format supports it.
 
 ## Complete Custom Settings bank matrix
@@ -253,26 +266,30 @@ These are the actual firmware 3.00 Custom Settings. Focus mode, AF-area mode, an
 | **a6 AF activation** | AF-ON only | AF-ON only | AF-ON only | AF-ON only |
 | **a11 Focus point display → AF-C in-focus display** | On | On | On | Not applicable in MF |
 | **a11 Focus point display → Manual focus mode** | On | On | On | On |
+| **a12 Built-in AF-assist illuminator** | Off | Off | Off | Off |
+| **a13 Focus peaking** | Display Off; sensitivity 2; Red | Same | Same | Display On for MF; sensitivity 2; Red; turn Off to see zebras in video MF |
 
 Photo-bank focus references:
 
 | Photo Shooting Menu item | A — Safari | B — Birds | C — Travel | D — Night |
 |---|---|---|---|---|
 | Focus mode | AF-C | AF-C | Prefer AF-C for consistent back-button/recall operation | MF for stars; AF-C temporarily for moving people |
-| AF-area mode | Wide-area AF (C1) | Wide-area AF (C1) | Auto-area AF for people; Single-point for static detail | MF; Pinpoint AF temporarily if useful |
+| AF-area mode | Wide-area AF (C1) | Wide-area AF (C1) | Auto-area AF for people; Single-point for static detail | MF; Pinpoint AF temporarily in **AF-S** if useful |
 | AF/MF subject detection options | Animal | Birds | People | Subject detection off for stars; People temporarily for portraits |
 
 ### b–e — Metering/exposure, timers, display, and bracketing
 
 | Exact Custom Setting | A — Safari | B — Birds | C — Travel | D — Night |
 |---|---|---|---|---|
-| **b3 Easy exposure compensation** | On (Auto reset), optional | On (Auto reset), optional | On (Auto reset), optional | Off |
+| **b3 Easy exposure compensation** | **Off**; unavailable in M | **Off**; unavailable in M | **On (Auto reset)** for the stored A-mode workflow | Off |
 | **b5 Center-weighted area** | Standard | Standard | Standard | Standard |
 | **c3 Power off delay → Standby timer** | 1 minute | 1 minute | 30 seconds | 5 minutes while composing |
 | **c2 Self-timer → Self-timer delay** | 2 seconds | 2 seconds | 2 seconds | 2 seconds |
 | **d1 Continuous shooting speed → Continuous high-speed** | 15 fps | 20 fps | 10 fps | 10 fps |
 | **d9 View mode (photo Lv)** | Show effects of settings | Show effects of settings | Show effects of settings | Adjust for ease of viewing |
 | **d16 Grid type** | 3×3 | 3×3 | 3×3 | 3×3 |
+| **d19 Custom monitor shooting display → Display 2** | Enabled; Basic shooting info + Histogram | Same | Same | Same |
+| **d20 Custom viewfinder shooting display → Display 2** | Enabled; Basic shooting info + Histogram | Same | Same | Same |
 | **e6 Auto bracketing (mode M)** | Flash/speed | Flash/speed | Flash/speed | Flash/speed |
 
 **Auto bracketing → Auto bracketing set** is a Photo Shooting Menu item, not a Custom Setting. Use **AE bracketing** in each Photo bank and leave the shot count at 0F unless deliberately bracketing.
@@ -288,6 +305,50 @@ Photo-bank focus references:
 
 In Banks A–C, metering still matters when using **Manual exposure with Auto ISO**: the camera changes ISO according to the meter. Apply exposure compensation when the result is consistently too bright or dark. In Bank D with Manual shutter, aperture, and ISO, metering does not change the exposure; use it only as a reference and confirm the result with the histogram and magnified test images.
 
+### Show the live histogram while shooting
+
+The live histogram must be added to a DISP screen separately for the rear monitor and electronic viewfinder. These display choices are stored in the active **Custom Settings Bank**, so repeat the setup in A, B, C, and D.
+
+#### Photo mode: rear monitor
+
+1. Select **CUSTOM SETTINGS MENU → Custom settings bank → A**.
+2. Open **d Shooting/display → d19 Custom monitor shooting display**.
+3. Make sure **Display 2** has a check mark. Highlight Display 2 and press **J** if it is unchecked.
+4. Highlight **Display 2** and press **2/right** to choose its contents.
+5. Check **Basic shooting info** and **Histogram**. Leave Grid or Virtual horizon unchecked on this particular display to keep the graph easy to read.
+6. Press **MENU/G** to finish.
+7. Repeat for Custom Settings Banks B, C, and D.
+8. While composing a photograph on the rear monitor, press **DISP** repeatedly until the Display 2 screen with the live histogram appears.
+
+#### Photo mode: electronic viewfinder
+
+1. Open **CUSTOM SETTINGS MENU → d Shooting/display → d20 Custom viewfinder shooting display**.
+2. Enable **Display 2**, highlight it, and press **2/right**.
+3. Check **Basic shooting info** and **Histogram**, then press **MENU/G** to finish.
+4. Repeat in Custom Settings Banks A–D.
+5. Put your eye to the viewfinder and press **DISP** until the histogram display appears.
+
+#### Video mode: monitor and viewfinder
+
+1. Move the photo/video selector to video and select the appropriate Custom Settings Bank.
+2. Open **CUSTOM SETTINGS MENU → g Video → g18 Brightness information display → Histogram**.
+3. Press **2/right** on Histogram and set **Size: Standard**, **Transparency: 2**, and **Position: Bottom right**.
+4. Open **g20 Custom monitor shooting display → Display 2**, enable it, press **2/right**, and check **Basic shooting info** plus **Brightness information**.
+5. Open **g21 Custom viewfinder shooting display → Display 2** and check the same items.
+6. Repeat in Custom Settings Banks A–D.
+7. During video standby or recording, press **DISP** to cycle to the screen containing the histogram.
+
+#### Reading it in the field
+
+- The left side represents dark tones, the middle represents midtones, and the right side represents bright tones.
+- A graph touching the right edge warns that bright fur, feathers, clouds, or reflections may be clipping. Reduce exposure compensation or exposure when those highlights must retain detail.
+- A graph concentrated toward the left can be normal for night scenes. Do not brighten Bank D merely to center the histogram; protect stars and judge a captured test image.
+- The live histogram is based on the camera preview and is an exposure guide, not an exact measurement of the full RAW file. Confirm critical photographs with the playback histogram and highlight warnings.
+- Pressing the photo-mode Video record button assigned **Live view info display off** temporarily hides the histogram and other overlays; press it again to restore them.
+- In Bank D, **Adjust for ease of viewing** can brighten the display independently of the final photograph. If **Starlight view (photo Lv)** is On, the Z8 does not display a live histogram at all. Use the playback histogram and a magnified captured test frame instead.
+
+Official Nikon references: [The Monitor and DISP screens](https://onlinemanual.nikonimglib.com/z8/en/parts_of_monitor_11.html), [The Viewfinder and DISP screens](https://onlinemanual.nikonimglib.com/z8/en/parts_of_viewfinder_12.html), and [g20 Custom Monitor Shooting Display](https://onlinemanual.nikonimglib.com/z8/en/csmg_custom_monitor_shooting_display_289.html).
+
 ### f — Controls: complete focus and recall configuration
 
 Use this control arrangement in Custom Settings Banks A–D unless a bank-specific exception is stated below.
@@ -296,10 +357,26 @@ Use this control arrangement in Custom Settings Banks A–D unless a bank-specif
 |---|---|---|---|
 | AF-ON button | **CUSTOM SETTINGS MENU → f Controls → f2 Custom controls (shooting) → AF-ON button** | **AF-ON** | Normal back-button focus |
 | Fn1 button | **… → f2 Custom controls (shooting) → Fn1 button** | **AF-area mode + AF-ON → 3D-tracking** | Tracks an acquired subject across the frame |
-| Fn2 button | **… → f2 Custom controls (shooting) → Fn2 button** | **Recall shooting functions**—without “(hold)” | Momentary emergency-action exposure, AF-area, detection and burst preset |
+| Fn2 button | **… → f2 Custom controls (shooting) → Fn2 button** | A–C: **Recall shooting functions**—without “(hold)”; D: **Starlight view (photo Lv)** | Momentary action preset in A–C; dark-scene composition aid in D |
 | Sub-selector center | **… → f2 Custom controls (shooting) → Sub-selector center** | **AF-area mode + AF-ON → Auto-area AF** | Broad, thumb-operated subject acquisition anywhere in the frame |
 | Lens Fn button | **… → f2 Custom controls (shooting) → Lens Fn button** | **AF-area mode + AF-ON → Wide-area AF (C1)** | Targeted subject acquisition inside a predictable box; all four L-Fn buttons on the 180–600mm share this assignment |
-| Video record button in photo mode | **… → f2 Custom controls (shooting) → Video record button** | Shooting menu bank or Live view info display off | Optional photo-mode shortcut |
+| Video record button in photo mode | **… → f2 Custom controls (shooting) → Video record button** | **Live view info display off** | Temporarily clears shooting information without creating a Photo/Custom bank mismatch |
+
+#### f2 Custom Controls: explicit A–D bank assignments
+
+Select **CUSTOM SETTINGS MENU → Custom settings bank → A, B, C, or D** before configuring each column. Switching only the Photo Shooting Menu Bank does not switch these f Controls.
+
+| f Control or setting | A — Safari | B — Birds & Action | C — Travel/People | D — Night/Low Light |
+|---|---|---|---|---|
+| AF-ON button | AF-ON | AF-ON | AF-ON | AF-ON; inactive while Focus mode is MF |
+| Fn1 button | AF-area mode + AF-ON → 3D-tracking | Same | Same | Same; operates only after switching from MF to an AF mode |
+| Fn2 button | Recall shooting functions—without “(hold)”; **use Bank A submenu below** | Recall shooting functions—without “(hold)”; **use Bank B submenu below** | Recall shooting functions—without “(hold)”; **use Bank C submenu below** | **Starlight view (photo Lv)** |
+| Sub-selector center | AF-area mode + AF-ON → Auto-area AF | Same | Same | Same; operates only in an AF mode |
+| Lens Fn button | AF-area mode + AF-ON → Wide-area AF (C1); used by all four 180–600mm L-Fn buttons | Same | Keep the same assignment, but the recommended 70–180mm has no L-Fn button | Keep the same assignment, but the recommended 70–180mm has no L-Fn button |
+| Video record button in photo mode | Live view info display off | Same | Same | Same |
+| f15 Prefer sub-selector center | On | On | On | On |
+
+The physical assignments are intentionally consistent for muscle memory. **Fn2 is the bank-specific exception:** A–C receive their own recalled exposure, AF-area, detection, lock-on, and burst values. D uses Starlight view because its normal MF star workflow cannot benefit from recalled AF-ON.
 
 Set **CUSTOM SETTINGS MENU → f Controls → f15 Prefer sub-selector center → ON**. This ensures that pressing the joystick center activates its assigned function instead of accidentally moving the focus point.
 
@@ -316,7 +393,7 @@ Assign the version **without “(hold)”**. It matches the emergency-action app
 
 Nikon reference: [f2 Custom Controls (Shooting)](https://onlinemanual.nikonimglib.com/z8/en/csmf_custom_controls_shooting_256.html). Wildlife inspiration: [Steve Perry’s Recall Shooting explanation](https://backcountrygallery.com/nikons-new-recall-shooting-feature/) and [Z8/Z9 control worksheet](https://backcountrygallery.com/Z8_Z9_Control_Customization_Worksheets.pdf).
 
-#### Fn2 recall submenu: exact values by Custom Settings Bank
+#### Fn2 recall submenu: exact values for Custom Settings Banks A–C
 
 Configure each preset after selecting its Custom Settings Bank:
 
@@ -326,23 +403,23 @@ Configure each preset after selecting its Custom Settings Bank:
 4. Press **2/right** to open the recall submenu.
 5. Check only the rows marked **Yes** below, enter the specified values, and choose **Done**.
 
-| Recall submenu | A — Safari | B — Birds & Action | C — Travel/People | D — Night/Low Light | Recall it? |
-|---|---|---|---|---|---:|
-| Shooting mode | M | M | M | M | Yes |
-| Shutter speed | **1/3200 sec** | **1/4000 sec** | **1/2000 sec** | **1/500 sec** | Yes |
-| Aperture | **f/6.3** | **f/6.3** | **f/2.8** | **f/2.8** | Yes |
-| Exposure compensation | 0.0 EV | 0.0 EV | 0.0 EV | 0.0 EV | Yes |
-| ISO sensitivity | ISO 64; Auto ISO On | ISO 64; Auto ISO On | ISO 64; Auto ISO On | ISO 64; Auto ISO On | Yes |
-| Maximum sensitivity | ISO 12,800 | ISO 12,800 | ISO 6,400 | ISO 25,600 | Yes |
-| Metering | Matrix | Matrix | Matrix | Matrix | Yes |
-| White balance | Inherit Bank A | Inherit Bank B | Inherit Bank C | Inherit Bank D | **No—leave unchecked** |
-| AF-area mode | Wide-area AF (C1) | Wide-area AF (C1) | Wide-area AF (C1) | Wide-area AF (C1) | Yes |
-| Wide-area AF (C1) dimensions | **19×11** | **19×11** | **19×11** | **19×11** | Configure in the AF-area menu |
-| AF/MF subject detection options | **Auto** | **Birds** | **Auto** | **Auto** | Yes |
-| Focus tracking with lock-on → Blocked shot AF response | 2 | 2 | 3 | 2 | Yes |
-| Focus tracking with lock-on → Subject motion | Erratic | Erratic | Steady | Erratic | Yes |
-| Release mode | Continuous high-speed, **20 fps** | Continuous high-speed, **20 fps** | Continuous high-speed, **15 fps** | Continuous high-speed, **10 fps** | Yes |
-| AF-ON | Enabled | Enabled | Enabled | Enabled | **Yes** |
+| Recall submenu | A — Safari | B — Birds & Action | C — Travel/People | Recall it? |
+|---|---|---|---|---:|
+| Shooting mode | M | M | M | Yes |
+| Shutter speed | **1/3200 sec** | **1/4000 sec** | **1/2000 sec** | Yes |
+| Aperture | **f/6.3** | **f/6.3** | **f/2.8** | Yes |
+| Exposure compensation | 0.0 EV | 0.0 EV | 0.0 EV | Yes |
+| ISO sensitivity | ISO 64; Auto ISO On | ISO 64; Auto ISO On | ISO 64; Auto ISO On | Yes |
+| Maximum sensitivity | ISO 12,800 | ISO 12,800 | ISO 6,400 | Yes |
+| Metering | Matrix | Matrix | Matrix | Yes |
+| White balance | Inherit Bank A | Inherit Bank B | Inherit Bank C | **No—leave unchecked** |
+| AF-area mode | Wide-area AF (C1) | Wide-area AF (C1) | Wide-area AF (C1) | Yes |
+| Wide-area AF (C1) dimensions | **19×11** | **19×11** | **19×11** | Configure in the AF-area menu |
+| AF/MF subject detection options | **Auto** | **Birds** | **Auto** | Yes |
+| Focus tracking with lock-on → Blocked shot AF response | 2 | 2 | 3 | Yes |
+| Focus tracking with lock-on → Subject motion | Erratic | Erratic | Steady | Yes |
+| Release mode | Continuous high-speed, **20 fps** | Continuous high-speed, **20 fps** | Continuous high-speed, **15 fps** | Yes |
+| AF-ON | Enabled | Enabled | Enabled | **Yes** |
 
 Select **Done** after entering the values. Do not choose **Save current settings** unless the camera has first been deliberately placed in every desired setting.
 
@@ -355,13 +432,13 @@ The A/B recommendations adapt the 1/3200 sec, f/6.3, custom-Wide-area strategy u
 | A — Safari | Converts the normal 1/1600-sec safari setup into maximum-action settings for a run, fight, crossing, takeoff, or sudden behavior. |
 | B — Birds & Action | Forces the fastest bird configuration: 1/4000 sec, Birds detection, Wide C1 and 20 fps. |
 | C — Travel/People | Converts the 70–180mm f/2.8 travel setup into a fast people, street, or close-wildlife action configuration. |
-| D — Night/Low Light | Provides a handheld low-light action configuration, but see the focus-mode limitation below. |
+| D — Night/Low Light | Fn2 brightens the shooting display with Starlight view; the live histogram becomes unavailable until Starlight view is turned Off. |
 
 #### Critical focus-mode limitation
 
 Recall Shooting Functions does **not** change Focus mode. Keep A and B in AF-C. For the most predictable Fn2 behavior, keep C in AF-C as well; back-button focus still works for stationary subjects by releasing AF-ON after focus is acquired.
 
-Bank D normally uses MF for stars. Fn2 cannot change MF to AF-C, so its AF-ON selection will not start autofocus until Focus mode is manually changed to AF-C. On a night devoted entirely to stars, an alternative is to assign Fn2 in Bank D to **Starlight view (photo Lv)** rather than Recall Shooting Functions.
+Bank D normally uses MF for stars. Fn2 therefore uses **Starlight view (photo Lv)**. If you temporarily need a handheld low-light action preset, reassign Fn2 to Recall Shooting Functions and change Focus mode to AF-C first; Recall Shooting Functions cannot change MF to AF-C.
 
 #### Sub-selector center: ideal assignment and use
 
@@ -459,11 +536,16 @@ Official firmware 3.00 references: [Z8 Available Roles for Custom Controls](http
 |---|---|---|---|---|
 | Video AF speed | 0 to +2 | +2 | −1 to 0 | −2 or manual focus |
 | Video AF tracking sensitivity | 3 | 2 | 4 | 5 or manual focus |
+| g13 Shutter mode | Speed | Same | Same | Same |
+| g18 Brightness information display → Histogram | Standard; transparency 2; bottom right | Same | Same | Same |
+| g20 Custom monitor shooting display → Display 2 | Basic shooting info + Brightness information | Same | Same | Same |
+| g21 Custom viewfinder shooting display → Display 2 | Basic shooting info + Brightness information | Same | Same | Same |
 | g15 Zebra pattern → Pattern tone range | Highlights | Highlights | Highlights | Highlights |
 | g15 Zebra pattern → Pattern | Pattern 1 | Pattern 1 | Pattern 1 | Pattern 1 |
 | g15 Zebra pattern → Color | Red | Red | Red | Red |
 | g15 Zebra pattern → Highlight threshold | 245 | 245 | 245 | 245 |
 | g16 Limit zebra pattern tone range | Allow Highlights | Allow Highlights | Allow Highlights | Allow Highlights |
+| g22 Red REC frame indicator | On | On | On | On |
 
 Zebra settings are located under **CUSTOM SETTINGS MENU → g Video → g15 Zebra pattern** and **g16 Limit zebra pattern tone range**. They are not in the Video Recording Menu. A highlight threshold of **245** gives an early warning near clipping; Nikon allows values from 120 to 255, with 255 showing only areas that may already be overexposed. Zebras are display aids and are not recorded in the video.
 
@@ -554,7 +636,7 @@ Enable Extended Photo Menu Banks only after testing. They allow exposure mode, s
 | A | Safari wildlife | 180–600mm f/5.6–6.3 | AF-C, Wide C1 | Animals | Matrix | 1/1600 sec | High Efficiency★ |
 | B | Birds and action | 180–600mm f/5.6–6.3 | AF-C, Wide C1 | Birds | Matrix | 1/2500–1/3200 sec | High Efficiency★ |
 | C | Travel and people | 70–180mm f/2.8 | AF-C/Auto-area for people; AF-S/Single-point for static scenes | People | Matrix | 1/500 sec | Lossless compressed |
-| D | Night sky and low light | 70–180mm f/2.8 | MF for stars | Off | Matrix as reference | 5–8 sec at 70mm; 1.6–2 sec at 180mm | Lossless compressed |
+| D | Night sky and low light | 70–180mm f/2.8 | MF for stars | Off | Matrix as reference | 5–7 sec at 70mm; 1.6–2 sec at 180mm | Lossless compressed |
 
 ## Pre-shoot verification
 
@@ -574,8 +656,9 @@ Enable Extended Photo Menu Banks only after testing. They allow exposure mode, s
 14. Record and review a short video in Video Banks A–D.
 15. Check audio meters and listen to a test clip made with the built-in microphone.
 16. Test Bank D manual focus and tripod workflow at 70mm and 180mm.
-17. Confirm Fn2 cannot start AF while Bank D remains in MF; change to AF-C before testing D’s action recall.
+17. Confirm Custom Bank D Fn2 toggles **Starlight view** and that the live histogram disappears while Starlight view is active.
 18. Confirm the complete f1 Photo and g1 Video i Menu layouts are copied to Custom Banks A–D.
-19. Confirm adequate card capacity, charged batteries, and correct date/time.
-20. Save the finished setup to card and copy the original, unrenamed **NCSET*** file to a computer.
-21. Test the companion offline after updating it.
+19. Press **DISP** and confirm the live histogram appears on both the monitor and viewfinder in Photo and Video Custom Banks A–D.
+20. Confirm adequate card capacity, charged batteries, and correct date/time.
+21. Save the finished setup to card and copy the original, unrenamed **NCSET*** file to a computer.
+22. Test the companion offline after updating it.

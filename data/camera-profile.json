@@ -1,5 +1,5 @@
 {
-  "version": "31.0",
+  "version": "31.1",
   "camera": "Nikon Z8",
   "ownedLenses": [
     "NIKKOR Z 70-180mm f/2.8",
@@ -9,14 +9,35 @@
     "afActivation": "AF-ON only",
     "afOn": "AF-ON / back-button focus",
     "fn1": "AF-area mode + AF-ON: 3D-tracking",
-    "fn2": "Recall shooting functions without hold; momentary per-bank action preset with AF-ON",
-    "fn2FocusModeLimitation": "Recall cannot change Focus mode. Keep A-C in AF-C; change D from MF to AF-C before recalled AF-ON can focus.",
+    "fn2": "A-C: Recall shooting functions without hold; D: Starlight view (photo Lv)",
+    "fn2FocusModeLimitation": "Recall cannot change Focus mode. Keep A-C in AF-C. D uses Starlight view instead of recall because its normal star workflow is MF.",
     "subSelectorCenter": "AF-area mode + AF-ON: Auto-area AF",
     "lensLFn": "AF-area mode + AF-ON: Wide-area AF C1; all four 180-600mm L-Fn buttons share this assignment"
   },
+  "photoF2Banks": {
+    "sharedControls": {
+      "afOn": "AF-ON",
+      "fn1": "AF-area mode + AF-ON: 3D-tracking",
+      "fn2": "A-C: Recall shooting functions without hold; D: Starlight view (photo Lv)",
+      "subSelectorCenter": "AF-area mode + AF-ON: Auto-area AF",
+      "lensFn": "AF-area mode + AF-ON: Wide-area AF C1",
+      "videoRecordButton": "Live view info display off",
+      "preferSubSelectorCenter": "On"
+    },
+    "recallByCustomSettingsBank": {
+      "A": "M; 1/3200 s; f/6.3; Auto ISO max 12800; Matrix; WB unchecked; Wide C1 19x11; Auto detection; lock-on 2 Erratic; CH 20 fps; AF-ON enabled",
+      "B": "M; 1/4000 s; f/6.3; Auto ISO max 12800; Matrix; WB unchecked; Wide C1 19x11; Birds; lock-on 2 Erratic; CH 20 fps; AF-ON enabled",
+      "C": "M; 1/2000 s; f/2.8; Auto ISO max 6400; Matrix; WB unchecked; Wide C1 19x11; Auto detection; lock-on 3 Steady; CH 15 fps; AF-ON enabled"
+    },
+    "bankD": "Fn2 toggles Starlight view (photo Lv); it is not assigned Recall shooting functions. Live histogram is unavailable while Starlight view is On."
+  },
+  "bankBehavior": {
+    "extendedMenuBanks": "On; required so exposure mode, shutter speed and aperture follow A-D",
+    "reset": "Reset each Photo Shooting Menu Bank and Custom Settings Bank separately by highlighting A-D and pressing O (Q)."
+  },
   "storage": {
     "slot1": "512 GB CFexpress Type B primary",
-    "slot2Role": "Overflow",
+    "secondarySlotFunction": "Overflow",
     "warning": "Overflow increases capacity but does not create a duplicate; make a separate daily backup."
   },
   "menuSettingsBackup": {
@@ -26,6 +47,15 @@
     "file": "Copy the camera-created NCSET*** file to a computer and never rename it.",
     "restore": "Put the original unrenamed file at the card's top level, insert the card, then choose Load menu settings and verify all banks and controls.",
     "limitations": "Same Nikon Z8 model only; custom Picture Controls save as Auto; verify date/time, exposure values, lens-dependent VR and settings excluded by Nikon."
+  },
+  "liveHistogram": {
+    "photoMonitor": "Custom Settings Menu > d Shooting/display > d19 Custom monitor shooting display > Display 2: enable Basic shooting info and Histogram",
+    "photoViewfinder": "Custom Settings Menu > d Shooting/display > d20 Custom viewfinder shooting display > Display 2: enable Basic shooting info and Histogram",
+    "videoType": "Custom Settings Menu > g Video > g18 Brightness information display > Histogram: Standard, transparency 2, bottom right",
+    "videoMonitor": "g20 Custom monitor shooting display > Display 2: Basic shooting info and Brightness information",
+    "videoViewfinder": "g21 Custom viewfinder shooting display > Display 2: Basic shooting info and Brightness information",
+    "use": "Repeat in Custom Settings Banks A-D and press DISP while shooting to cycle to the histogram screen.",
+    "caution": "The live histogram reflects the preview. Bank D Starlight view disables the live histogram entirely; turn it Off and use the captured-image histogram and a magnified test frame."
   },
   "zebra": {
     "menu": "Custom Settings Menu > g Video > g15 Zebra pattern; g16 Limit zebra pattern tone range",
@@ -45,20 +75,25 @@
         "shutter": "1/1600 s default; 1/2000-1/2500 for action",
         "aperture": "Wide open: f/5.6 at 180mm to f/6.3 near 600mm",
         "raw": "High Efficiency Star, 14-bit",
+        "highIsoNrMode": "Type A",
         "metering": "Matrix; Highlight-weighted for pale animals in harsh sun",
         "af": "AF-C \u00b7 Wide-area AF C1 / 3D override",
         "afPriority": "Release",
         "detection": "Animals",
+        "mfSubjectDetectionArea": "All",
         "release": "Continuous high 15 fps",
         "iso": "Auto ISO, max 12,800",
         "lens": "180-600mm"
       },
       "video": {
         "format": "4K 60p, H.265 10-bit MOV, SDR",
+        "mode": "M",
+        "destination": "CFexpress/XQD card slot",
         "shutter": "1/125 s",
         "aperture": "Wide open to f/8",
         "af": "AF-C \u00b7 Wide-area / Auto-area",
         "detection": "Animals",
+        "mfSubjectDetectionArea": "All",
         "metering": "Matrix",
         "audio": "Built-in mic, Auto sensitivity; attenuator Off; wind reduction when windy",
         "hiResZoom": "Off",
@@ -73,20 +108,25 @@
         "shutter": "1/2500-1/3200 s",
         "aperture": "Wide open: f/5.6 at 180mm to f/6.3 near 600mm",
         "raw": "High Efficiency Star, 14-bit",
+        "highIsoNrMode": "Type A",
         "metering": "Matrix; Highlight-weighted for white or bright birds",
         "af": "AF-C \u00b7 Wide-area AF C1",
         "afPriority": "Release",
         "detection": "Birds",
+        "mfSubjectDetectionArea": "All",
         "release": "Continuous high 20 fps",
         "iso": "Auto ISO, max 12,800",
         "lens": "180-600mm"
       },
       "video": {
         "format": "4K 120p when slow motion matters; otherwise 4K 60p; H.265 10-bit MOV, SDR",
+        "mode": "M",
+        "destination": "CFexpress/XQD card slot",
         "shutter": "1/250 s at 120p; 1/125 s at 60p",
         "aperture": "Wide open",
         "af": "AF-C \u00b7 Wide-area AF C1",
         "detection": "Birds",
+        "mfSubjectDetectionArea": "All",
         "metering": "Matrix",
         "audio": "Built-in mic, Auto sensitivity; attenuator Off; wind reduction when windy",
         "hiResZoom": "Off",
@@ -97,51 +137,61 @@
     "C": {
       "name": "Travel / People / Environment",
       "photo": {
-        "mode": "A or M + Auto ISO",
-        "shutter": "1/500 s people; stable support for landscapes",
+        "mode": "A + Auto ISO",
+        "shutter": "Auto ISO minimum shutter 1/500 s for people; Auto or slower on stable support for landscapes",
         "aperture": "f/2.8-f/4 portraits; f/8 environmental",
         "raw": "Lossless compressed, 14-bit",
+        "highIsoNrMode": "Type A",
         "metering": "Matrix; Highlight-weighted or Spot only when deliberately needed",
         "af": "AF-C People or AF-S single point",
         "afPriority": "Release when using AF-C",
         "detection": "People / Off as needed",
+        "mfSubjectDetectionArea": "All",
         "release": "Single or low continuous",
-        "iso": "ISO 64-1600",
+        "iso": "Auto ISO, max 6,400; minimum shutter 1/500 s for people",
         "lens": "70-180mm"
       },
       "video": {
         "format": "4K 24/30p, H.265 10-bit MOV, SDR",
+        "mode": "M",
+        "destination": "CFexpress/XQD card slot",
         "shutter": "1/50 or 1/60 s",
         "aperture": "f/2.8-f/8",
         "af": "AF-F / AF-C with smooth transition",
         "detection": "People",
+        "mfSubjectDetectionArea": "All",
         "metering": "Matrix",
         "audio": "Built-in mic, Auto sensitivity; attenuator Off; wind reduction outdoors when windy",
-        "hiResZoom": "Off by default; temporary On for a controlled push-in",
+        "hiResZoom": "Off by default; temporary On only at 4K 24/30p for a controlled push-in; forces Wide-area AF L and Electronic VR Off",
         "lens": "70-180mm",
-        "use": "Family, Stone Town, lodges, Zanzibar and environmental stories"
+        "use": "Family, lodges, Zanzibar portraits and compressed environmental stories; 70mm is often too tight for Stone Town interiors, groups and broad landscapes, so use a wider lens if owned or a phone/panorama"
       }
     },
     "D": {
       "name": "Night Sky / Low Light",
       "photo": {
         "mode": "M",
-        "shutter": "5-8 s at 70mm; 4-5 s at 100mm; 2-3 s at 135mm; 1.6-2 s at 180mm; moon 1/125-1/500 s",
+        "shutter": "5-7 s at 70mm, start 5 s; 4-5 s at 100mm; 2-3 s at 135mm; 1.6-2 s at 180mm; moon 1/125-1/500 s",
         "aperture": "f/2.8",
         "raw": "Lossless compressed, 14-bit",
+        "highIsoNrMode": "Type A",
         "metering": "Matrix as a reference; verify with histogram and test image",
         "af": "Manual focus using magnified live view",
         "detection": "Off",
+        "mfSubjectDetectionArea": "MF subject detection off",
         "release": "2 s self-timer",
         "iso": "ISO 3200-6400 start",
         "lens": "70-180mm; strongest for moon, constellations and compressed night scenes"
       },
       "video": {
         "format": "4K 24p, H.265 10-bit MOV, SDR",
+        "mode": "M",
+        "destination": "CFexpress/XQD card slot",
         "shutter": "1/50 s",
         "aperture": "f/2.8",
         "af": "Manual focus or slow AF",
         "detection": "Off / People for camp scenes",
+        "mfSubjectDetectionArea": "MF subject detection off",
         "metering": "Matrix",
         "audio": "Built-in mic, Auto sensitivity; attenuator Off; wind reduction only when needed",
         "hiResZoom": "Off",
